@@ -195,6 +195,25 @@ var slate = ( function() {
 	}
 }());
 
+//util
+var util = ( function(){
+    return {
+        safe : function(obj, property_names){
+            if(obj == undefined)
+                return undefined;
+            var temp_result;
+            for(i = 0; i < property_names.length; i++){
+                temp_result = obj[property_names[i]];
+                if(temp_result == undefined){
+                    return undefined;
+                }else{
+                    obj = temp_result;
+                }
+            }
+            return obj;
+        }
+    };
+}());
 //math
 var math = ( function() {
 	return {
@@ -471,27 +490,22 @@ Node.prototype.traverse_breadth_first_and_execute = function(function_on_parent,
     }(args1, node));
 }
 
-var null_safe = function(obj, property){
-    return obj != undefined ?obj[property]:undefined;
-}
-
 Node.prototype.paint = function(location){
     this.traverse_breadth_first_and_execute(
         function draw_node(args, node){
-            var node_loc = node.coordinate != undefined ? node.coordinate.location : undefined; 
-            var bend_connection_point = node.coordinate != undefined ? node.coordinate.bend_connection_point : undefined;
+            var node_loc = util.safe(node, ['coordinate', 'location']);
+            var bend_connection_point = util.safe(node, ['coordinate', 'bend_connection_point']);
             var parent_location = typeof(args.parent_location) != 'undefined' ? args.parent_location : node_loc != undefined ? node_loc.clone(): undefined; 
-			//console.log(bend_connection_point)           
             node.draw_node_and_connector(args.location, node_loc, parent_location, bend_connection_point);
             return {location: args.location};
         }, 
         function draw_leaf_node(child_node, node, response_from_function_on_parent){
-            var child_node_loc = child_node.coordinate != undefined ? child_node.coordinate.location : undefined;
-            var parent_node_loc = node.coordinate != undefined ? node.coordinate.location: undefined;
+            var child_node_loc = util.safe(child_node, ['coordinate', 'location']);
+            var parent_node_loc = util.safe(node, ['coordinate', 'location']);
 			child_node.draw_node_and_connector(response_from_function_on_parent.location, child_node_loc, parent_node_loc);            
         },
         function draw_non_leaf_node(child_node, node, response_from_function_on_parent){ 
-            return {location : null_safe(response_from_function_on_parent, 'location'), parent_location: null_safe(node.coordinate, 'location'), should_process_children : true};
+            return {location : util.safe(response_from_function_on_parent, ['location']), parent_location: util.safe(node.coordinate, ['location']), should_process_children : true};
         },
         {location: location, should_process_children : true}
     );
@@ -576,14 +590,6 @@ Node.prototype.handle_click = function(){
 	this.root_node.relative_loc = this.root_node.relative_loc.displace(math.relative_position(this.root_node.coordinate.location, this.coordinate.location, node_location));
 	this.root_node.paint(this.root_node.relative_loc);
 }
-
-var utitities = (function(){
-    return {
-        null_safe_fun : function(obj, fun_name, args){
-            return obj != undefined? obj[fun_name].apply(obj, args): undefined;
-        }
-    }
-}()); 
 
 Node.prototype.draw_node = function(location, parent_location, connector_bend_point, relative_location, node_type){
     var draw_connector_line_passing_connection_point = function(from, connection_point, to){
