@@ -20,11 +20,11 @@ Function.add_method('inherits', function(Parent) {
 var constants = ( function() {
 	return {
 		min_distance_from_parent_to_child : 15,
-		min_space_between_nodes : 3,
 		node_stroke_width : 2,
-		node_bounding_circle_radius : 8, // + constants.node_stroke_width + constants.min_space_between_nodes;
-		leaf_node_enc_circle_radius : 11,
-		node_color : '#188AD6'
+		node_bounding_circle_radius :  8,//constants.node_stroke_width + constants.min_space_between_nodes,
+		leaf_node_enc_circle_radius : 30,
+		node_color : 'lightgrey',
+        symbol_stroke_width : 2
 	}
 }());
 
@@ -32,6 +32,16 @@ var constants = ( function() {
 
 var drawings = ( function() {
 	var this_drawings = this;
+
+    var Text = function(text, location, displace_by, orientation){
+        this.text = text;
+        this.displace_by = displace_by;
+        this.orientation = orientation;
+        this.location = location;
+    }.add_method('draw', function(){
+        var text_location = this.location.displace(new math.Location(0, drawings.text_orientation.top === this.orientation ? this.displace_by: -this.displace_by));
+        return slate.instance().text(text_location.x, text_location.y, this.text);
+    })
 	
     var Line = function(location) {
 		this.path = 'M ' + location.x + ' ' + location.y + ' ';
@@ -96,69 +106,80 @@ var drawings = ( function() {
 		});    
     });
     
-	var Node = function(x, y) {
-		initialize(x, y);
-	}.add_method('initialize', function(x, y) {
+	var Node = function(x, y, text, text_orientation) {
+		initialize(x, y, text, text_orientation);
+	}.add_method('initialize', function(x, y, text, text_orientation) {
 		this.stroke_width = constants.node_stroke_width;
 		this.bounding_circle_radius = constants.node_bounding_circle_radius;
 		this.color = constants.node_color;
 		this.center = new math.Location(x, y);
+        this.text = text;
+        this.text_orientation = text_orientation;
 		this.draw();
 	}).add_method('radius_minus_one_point_five', function() {
 		return this.bounding_circle_radius - this.stroke_width / 2 - 1.5;
 	}).add_method('erase', function() {
-		this.refs.boundry.remove();
+		//this.refs.boundry.remove();
 		this.refs.symbol.remove();
+        this.refs.text.remove();
 	}).add_method('unbind_click_handler', function(id) {
 		$(this.refs.boundry.node).unbind('click.node_' + id);
 	}).add_method('bind_click_handler', function(id, click_handler) {
 		$(this.refs.boundry.node).bind('click.node_' + id, click_handler);
-	});
+	}).add_method('node_text', function(){
+        return new Text(this.text, this.center, this.bounding_circle_radius + 4, this.text_orientation).draw();
+    });
 
-	var LeafNode = function(x, y) {
-		this.initialize(x, y);
+	var LeafNode = function(x, y, text, text_orientation) {
+		this.initialize(x, y, text, text_orientation);
 	}.inherits(Node).add_method('draw', function() {
-		var circle = new Circle(this.bounding_circle_radius, this.center, this.color, this.stroke_width).draw();
-		var inner_circle = new Circle(this.bounding_circle_radius / 2, this.center, this.color, 0.5).draw();
+		var circle = new Circle(this.bounding_circle_radius, this.center, this.color, 0).draw();
+		var inner_circle = new Circle(this.bounding_circle_radius / 2, this.center, this.color, constants.symbol_stroke_width).draw();
+        var text = this.node_text();
 		this.refs = {
 			boundry : circle,
-			symbol : inner_circle
+			symbol : inner_circle,
+            text : text
 		};
 		return this;
 	});
-	var ShrinkableNode = function(x, y) {
-		this.initialize(x, y);
+	var ShrinkableNode = function(x, y, text, text_orientation) {
+		this.initialize(x, y, text, text_orientation);
 	}.inherits(Node)
     .add_method('draw', function() {
-		var minus = new Minus(this.radius_minus_one_point_five(), this.center, this.color, this.stroke_width).draw();
-		var circle = new Circle(this.bounding_circle_radius, this.center, this.color, this.stroke_width).draw();
-		this.refs = {
+		var minus = new Minus(this.radius_minus_one_point_five(), this.center, this.color, constants.symbol_stroke_width).draw();
+		var circle = new Circle(this.bounding_circle_radius, this.center, this.color, 0).draw();
+		var text = this.node_text();
+        this.refs = {
 			boundry : circle,
-			symbol : minus
+			symbol : minus,
+            text : text
 		};
 		return this;
 	});
-	var ExpandableNode = function(x, y) {
-		this.initialize(x, y);
+	var ExpandableNode = function(x, y, text, text_orientation) {
+		this.initialize(x, y, text, text_orientation);
 	}.inherits(Node)
     .add_method('draw', function() {
-		var plus = new Plus(this.radius_minus_one_point_five(), this.center, this.color, this.stroke_width).draw();;
-		var circle = new Circle(this.bounding_circle_radius, this.center, this.color, this.stroke_width).draw();
-		this.refs = {
+		var plus = new Plus(this.radius_minus_one_point_five(), this.center, this.color, constants.symbol_stroke_width).draw();;
+		var circle = new Circle(this.bounding_circle_radius, this.center, this.color, 0).draw();
+		var text = this.node_text();
+        this.refs = {
 			boundry : circle,
-			symbol : plus
+			symbol : plus,
+            text : text
 		};
 		return this;
 	});
 	return {
-		leaf_node : function(location){
-			return new LeafNode(location.x, location.y);
+		leaf_node : function(location, text, text_orientation){
+			return new LeafNode(location.x, location.y, text, text_orientation);
 		},
-		expandable_node : function(location){
-			return new ExpandableNode(location.x, location.y);
+		expandable_node : function(location, text, text_orientation){
+			return new ExpandableNode(location.x, location.y, text, text_orientation);
 		},
-		shrinkable_node : function(location){
-			return new ShrinkableNode(location.x, location.y);
+		shrinkable_node : function(location, text, text_orientation){
+			return new ShrinkableNode(location.x, location.y, text, text_orientation);
 		},
 		line : function(from, to){
 			var line = slate.instance().path(new Line(from).to(to).to_string());
@@ -167,13 +188,17 @@ var drawings = ( function() {
                 'stroke-width' : constants.node_stroke_width
             });
 		},
+        text_orientation: {
+            top: 'top',
+            bottom: 'bottom'
+        },
         line_through_a_point : function(from, through, to){
 			var line = slate.instance().path(new Line(from).to(through).to(to).to_string());
             return line.attr({
                 stroke : constants.node_color,
                 'stroke-width' : constants.node_stroke_width
             });
-		}
+		},
 	}
 }());
 
@@ -371,7 +396,7 @@ var math = ( function() {
 					}
 				}
 			}
-			return smallest_enclosing_circle;
+			return smallest_enclosing_circle;// != null? new math.Circle(smallest_enclosing_circle.r + 2).set_location(smallest_enclosing_circle.location.clone()): null;
 		},
 		position_children_relative_to_parent : function(enclosing_circles_of_children) {
 			var sum_of_radius_of_all_child_enc_circles = math.sum_radius(enclosing_circles_of_children);
@@ -602,12 +627,14 @@ Node.prototype.draw_node = function(location, parent_location, connector_bend_po
                              math.point_on_line_at_a_distance(to, from, constants.node_bounding_circle_radius));
     };
 
-    location = relative_location.displace(location);    
-    this.ui = {'node': drawings[node_type](location)};
+    var text_orientation = location.y > util.safe(parent_location, ['y']) ? drawings.text_orientation.top: drawings.text_orientation.bottom;
+    location = relative_location.displace(location);
+    this.ui = {'node': drawings[node_type](location, this.title, text_orientation)};
 
     if(parent_location && !location.equals(relative_location.displace(parent_location))){
         parent_location = relative_location.displace(parent_location);
         this.ui.connector = connector_bend_point? draw_connector_line_passing_connection_point(location, relative_location.displace(connector_bend_point), parent_location): draw_connector_line(location, parent_location);
+        this.ui.connector.toBack();
     }
 }
 
