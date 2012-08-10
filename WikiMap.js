@@ -20,11 +20,17 @@ Function.add_method('inherits', function(Parent) {
 var constants = ( function() {
 	return {
 		min_distance_from_parent_to_child : 15,
-		node_stroke_width : 2,
+		node_stroke_width : 1,
 		node_bounding_circle_radius :  8,//constants.node_stroke_width + constants.min_space_between_nodes,
-		leaf_node_enc_circle_radius : 30,
-		node_color : 'lightgrey',
-        symbol_stroke_width : 2
+		leaf_node_enc_circle_radius : 35,
+		node_color : '#9FC4C9',
+        symbol_stroke_width : 2,
+        text : {
+            how_far_is_text_from_symbol: 4,
+            color : '#1B5A63',
+            font_size : '13',
+            width : 8
+        }
 	}
 }());
 
@@ -40,8 +46,33 @@ var drawings = ( function() {
         this.location = location;
     }.add_method('draw', function(){
         var text_location = this.location.displace(new math.Location(0, drawings.text_orientation.top === this.orientation ? this.displace_by: -this.displace_by));
-        return slate.instance().text(text_location.x, text_location.y, this.text);
-    })
+        var text_element =  slate.instance().text(text_location.x, text_location.y, this.trunc_text());
+        var that = this;
+        var hover_fun = function(){
+            text_element.attr({
+                text: that.text 
+             });
+        };
+
+        var hover_out_fun = function(){
+            text_element.attr({
+                text: that.trunc_text()
+            });
+        };
+
+        text_blanket = slate.instance().rect().attr(text_element.getBBox()).attr({
+            fill: "#000",
+            opacity: 0,
+        }).hover(hover_fun, hover_out_fun);
+        
+        return text_element.attr({
+            fill : constants.text.color,
+            'font-size' : constants.text.font_size,
+            'cursor': 'default'
+        });
+    }).add_method('trunc_text', function(){
+        return  this.text.length > constants.text.width ? this.text.substring(0, constants.text.width - 3) + '...': this.text;
+    });
 	
     var Line = function(location) {
 		this.path = 'M ' + location.x + ' ' + location.y + ' ';
@@ -127,7 +158,7 @@ var drawings = ( function() {
 	}).add_method('bind_click_handler', function(id, click_handler) {
 		$(this.refs.boundry.node).bind('click.node_' + id, click_handler);
 	}).add_method('node_text', function(){
-        return new Text(this.text, this.center, this.bounding_circle_radius + 4, this.text_orientation).draw();
+        return new Text(this.text, this.center, this.bounding_circle_radius + constants.text.how_far_is_text_from_symbol, this.text_orientation).draw();
     });
 
 	var LeafNode = function(x, y, text, text_orientation) {
@@ -141,6 +172,7 @@ var drawings = ( function() {
 			symbol : inner_circle,
             text : text
 		};
+        //text.attr({fill : 'orange'});
 		return this;
 	});
 	var ShrinkableNode = function(x, y, text, text_orientation) {
