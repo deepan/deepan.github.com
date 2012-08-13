@@ -30,7 +30,8 @@ var constants = ( function() {
         },
         node: {
             color: '#9FC4C9',
-            stroke_width : 1,
+            hover_color : 'orange',
+            stroke_width : 2,
             symbol_stroke_width: 2,
             bounding_circle_radius : 8,
             bounding_circle_stroke_width: 0,
@@ -43,6 +44,19 @@ var constants = ( function() {
 var drawings = ( function() {
 	var this_drawings = this;
 
+    var Drawing = function(){
+    }.add_method('hover_fun', function(){
+        this.ui_element.attr({
+            stroke: this.hover_color,
+        });
+    }).add_method('hover_out_fun', function(){
+        this.ui_element.attr({
+            stroke: this.color,
+        });
+    }).add_method('hover_element', function(){
+        return this.ui_element;
+    });
+
     var Text = function(text, location, displace_by, orientation){
         this.text = text;
         this.displace_by = displace_by;
@@ -51,40 +65,36 @@ var drawings = ( function() {
         this.color = constants.text.color;
         this.width = constants.text.width;
         this.font_size = constants.text.font_size;
+        this.hover_color = constants.node.hover_color;
     }.add_method('draw', function(){
         var text_location = this.location.displace(new math.Location(0, drawings.text_orientation.top === this.orientation ? this.displace_by: -this.displace_by));
         var text_element =  slate.instance().text(text_location.x, text_location.y, this.trunc_text());
         
-        this.text_element = text_element.attr({
+        this.ui_element = text_element.attr({
             fill : this.color,
             'font-size' : this.font_size,
             'cursor': 'default'
         });
-        this.hover();
-        return this.text_element;
+        return this.ui_element;
     }).add_method('trunc_text', function(){
         return  this.text.length > this.width ? this.text.substring(0, this.width - 3) + '...': this.text;
-    }).add_method('hover', function(){
-        var that = this;
-        var hover_fun = function(){
-            that.text_element.attr({
-                text: that.text 
-             });
-        };
-
-        var hover_out_fun = function(){
-            that.text_element.attr({
-                text: that.trunc_text()
-            });
-        };
-
-        text_blanket = slate.instance().rect().attr(that.text_element.getBBox()).attr({
+    }).add_method('hover_fun', function(){
+        this.ui_element.attr({
+            fill: this.hover_color,
+            text: this.text 
+        });
+    }).add_method('hover_out_fun', function(){
+        this.ui_element.attr({
+            fill: this.color,
+            text: this.trunc_text()
+        });
+    }).add_method('hover_element', function(){
+        return slate.instance().rect().attr(this.ui_element.getBBox()).attr({
             fill: "#000",
             opacity: 0,
-        }).hover(hover_fun, hover_out_fun);
-        
+        });
     }).add_method('remove', function(){
-        this.text_element.remove();
+        this.ui_element.remove();
     });
 	
     var Line = function(location) {
@@ -114,29 +124,16 @@ var drawings = ( function() {
         this.center = center;
         this.color = color;
         this.stroke_width = stroke_width;
-    }.add_method('draw', function(){
+        this.hover_color = constants.node.hover_color;
+    }.inherits(Drawing).add_method('draw', function(){
 		var minus = slate.instance().path(new Line(this.center).left(this.radius_of_minus).right(2 * this.radius_of_minus).to_string());
-		this.minus_element = minus.attr({
+		this.ui_element = minus.attr({
 			stroke : this.color,
 			'stroke-width' : this.stroke_width
 		});        
-        return this.minus_element;
+        return this.ui_element;
     }).add_method('remove', function(){
-        this.minus_element.remove();
-    }).add_method('hover', function(attach_to){
-        var that = this;
-        var hover_fun = function(){
-            that.minus_element.attr({
-                stroke: 'red'
-             });
-        };
-
-        var hover_out_fun = function(){
-            that.minus_element.attr({
-                stroke: 'blue'
-            });
-        };
-        attach_to.hover(hover_fun, hover_out_fun);
+        this.ui_element.remove();
     });
     
     var Plus = function(radius_of_plus, center, color, stroke_width){
@@ -144,15 +141,16 @@ var drawings = ( function() {
         this.center = center;
         this.color = color;
         this.stroke_width = stroke_width;
-    }.add_method('draw', function(){
+        this.hover_color = constants.node.hover_color;
+    }.inherits(Drawing).add_method('draw', function(){
 		var plus = slate.instance().path(new Line(this.center).left(this.radius_of_plus).right(2 * this.radius_of_plus).left(this.radius_of_plus).top(this.radius_of_plus).bottom(2 * this.radius_of_plus).to_string());
-		this.plus_element = plus.attr({
+		this.ui_element = plus.attr({
 			stroke : this.color,
 			'stroke-width' : this.stroke_width
 		});    
-        return this.plus_element;
+        return this.ui_element;
     }).add_method('remove', function(){
-        this.plus_element.remove();
+        this.ui_element.remove();
     });
     
     var Circle = function(radius, center, color, stroke_width){
@@ -160,17 +158,41 @@ var drawings = ( function() {
         this.center = center;
         this.color = color;
         this.stroke_width = stroke_width;
-    }.add_method('draw', function(){
+        this.hover_color = constants.node.hover_color;
+    }.inherits(Drawing).add_method('draw', function(){
 		var circle = slate.instance().circle(this.center.x, this.center.y, this.radius);
-		this.circle_element = circle.attr({
+		this.ui_element = circle.attr({
 			stroke : this.color,
 			'stroke-width' : this.stroke_width,
 			fill : 'white',
 			'fill-opacity' : 0
 		});   
-        return this.circle_element;
+        return this.ui_element;
     }).add_method('remove', function(){
-        this.circle_element.remove();
+        this.ui_element.remove();
+    });
+
+    var Connector = function(from, to, through){
+        this.from = from;
+        this.to = to;
+        this.through = through;
+        this.stroke_width = constants.node.stroke_width;
+        this.color = constants.node.color;
+        this.hover_color = constants.node.hover_color;
+    }.inherits(Drawing).add_method('draw', function(){
+        var line = new Line(this.from);
+        $.each(util.safe_list([this.through, this.to]), function(index, point){
+            line.to(point)
+        });
+		var line_element = slate.instance().path(line.to_string()).toBack();
+
+        this.ui_element = line_element.attr({
+            stroke : this.color,
+            'stroke-width' : this.stroke_width
+        });        
+        return this.ui_element;
+    }).add_method('remove', function(){
+        this.ui_element.remove();
     });
     
 	var Node = function(location, text, text_orientation, connector) {
@@ -191,9 +213,9 @@ var drawings = ( function() {
 	}).add_method('erase', function() {
 		this.refs.remove();
 	}).add_method('unbind_click_handler', function(id) {
-		$(this.refs.boundry.circle_element.node).unbind('click.node_' + id);
+		$(this.refs.boundry.ui_element.node).unbind('click.node_' + id);
 	}).add_method('bind_click_handler', function(id, click_handler) {
-		$(this.refs.boundry.circle_element.node).bind('click.node_' + id, click_handler);
+		$(this.refs.boundry.ui_element.node).bind('click.node_' + id, click_handler);
 	}).add_method('node_text', function(){
         return new Text(this.text, this.center, this.bounding_circle_radius + constants.text.how_far_is_text_from_symbol, this.text_orientation);
     });
@@ -215,6 +237,35 @@ var drawings = ( function() {
         this.text.remove();
         if(this.connector)
             this.connector.remove();        
+    }).add_method('hover_fun', function(){
+        var that = this;
+        return function(){
+            that.symbol.hover_fun();
+            that.boundry.hover_fun();
+            that.text.hover_fun();
+            if(that.connector)
+                that.connector.hover_fun();
+        }
+    }).add_method('hover_out_fun', function(){
+        var that = this;
+        return function(){
+            that.symbol.hover_out_fun();
+            that.boundry.hover_out_fun();
+            that.text.hover_out_fun();
+            if(that.connector)
+                that.connector.hover_out_fun();
+        }
+    }).add_method('hover', function(){
+        var ui_elements = slate.instance().set()
+        ui_elements.push(
+            this.symbol.hover_element(),
+            this.boundry.hover_element(),
+            this.text.hover_element()
+        );
+        if(this.connector)
+            ui_elements.push(this.connector.hover_element());
+        
+        ui_elements.hover(this.hover_fun(), this.hover_out_fun());
     });
 
 	var LeafNode = function(location, text, text_orientation, connector) {
@@ -225,8 +276,8 @@ var drawings = ( function() {
             new Circle(this.bounding_circle_radius, this.center, this.color, this.bounding_circle_stroke_width),
 			this.node_text(),
             this.connector);
-        
         this.refs.draw();
+        this.refs.hover();
 		return this;
 	});
 
@@ -239,8 +290,8 @@ var drawings = ( function() {
             new Circle(this.bounding_circle_radius, this.center, this.color, this.bounding_circle_stroke_width),
 			this.node_text(),
             this.connector);
-
         this.refs.draw();
+        this.refs.hover();
 		return this;
 	});
 	var ExpandableNode = function(location, text, text_orientation, connector) {
@@ -253,30 +304,9 @@ var drawings = ( function() {
 			this.node_text(),
             this.connector);
         this.refs.draw();
+        this.refs.hover();
 		return this;
 	});
-
-    var Connector = function(from, to, through){
-        this.from = from;
-        this.to = to;
-        this.through = through;
-        this.stroke_width = constants.node.stroke_width;
-        this.node_color = constants.node.color;
-    }.add_method('draw', function(){
-        var line = new Line(this.from);
-        $.each(util.safe_list([this.through, this.to]), function(index, point){
-            line.to(point)
-        });
-		var line_element = slate.instance().path(line.to_string()).toBack();
-
-        this.line_element = line_element.attr({
-            stroke : this.node_color,
-            'stroke-width' : this.stroke_width
-        });        
-        return this.line_element;
-    }).add_method('remove', function(){
-        this.line_element.remove();
-    });
 
 	return {
 		leaf_node : function(location, text, text_orientation, connector){
