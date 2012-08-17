@@ -4,6 +4,12 @@ Function.prototype.add_method = function(name, func) {
 		this.prototype[name] = func;
 		return this;
 	}
+    return this;
+}
+
+Function.prototype.unsafe_add_method = function(name, func) {
+	this.prototype[name] = func;
+	return this;
 }
 
 Function.add_method('inherits', function(Parent) {
@@ -31,7 +37,7 @@ var constants = ( function() {
         node: {
             color: '#9FC4C9',
             hover_color : 'orange',
-            stroke_width : 2,
+            stroke_width : 1,
             symbol_stroke_width: 2,
             bounding_circle_radius : 8,
             bounding_circle_stroke_width: 0,
@@ -179,6 +185,7 @@ var drawings = ( function() {
         this.stroke_width = constants.node.stroke_width;
         this.color = constants.node.color;
         this.hover_color = constants.node.hover_color;
+        this.hover_stroke_width = constants.node.symbol_stroke_width;
     }.inherits(Drawing).add_method('draw', function(){
         var line = new Line(this.from);
         $.each(util.safe_list([this.through, this.to]), function(index, point){
@@ -189,10 +196,20 @@ var drawings = ( function() {
         this.ui_element = line_element.attr({
             stroke : this.color,
             'stroke-width' : this.stroke_width
-        });        
+        });
         return this.ui_element;
     }).add_method('remove', function(){
         this.ui_element.remove();
+    }).unsafe_add_method('hover_fun', function(){
+        this.ui_element.attr({
+            stroke: this.hover_color,
+            'stroke-width': this.hover_stroke_width
+        });
+    }).unsafe_add_method('hover_out_fun', function(){
+        this.ui_element.attr({
+            stroke: this.color,
+            'stroke-width': this.stroke_width
+        });
     });
     
 	var Node = function(location, text, text_orientation, connector) {
