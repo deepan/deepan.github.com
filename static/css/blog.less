@@ -1,0 +1,28 @@
+@header-height: 120px;
+@header-color: #FFFFFF;
+@title-color: #2C3E50;
+
+@font-family: 'Vollkorn', serif;
+@medium-font: 3em;
+
+.no-margin-and-padding {
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    .no-margin-and-padding;
+}
+
+header{
+    height: @header-height;
+    background: @header-color;
+    border-bottom: 1px solid #95A5A6;
+    .title{
+        .no-margin-and-padding;
+        color: @title-color;
+        text-align: center;
+        vertical-align: middle;
+        font:@medium-font e('/') @header-height @font-family;
+    }
+}
