@@ -3,11 +3,21 @@
 @title-color: #2C3E50;
 
 @font-family: 'Vollkorn', serif;
-@medium-font: 3em;
+@post-font-family: 'Open Sans', sans-serif;
+@big-font: 4em;
+@medium-font: 2em;
+
+@content-width: 75%;
 
 .no-margin-and-padding {
     margin: 0;
     padding: 0;
+}
+
+.content{
+    width: @content-width;
+    margin: 0 auto;
+
 }
 
 html, body{
@@ -17,12 +27,25 @@ html, body{
 header{
     height: @header-height;
     background: @header-color;
-    border-bottom: 1px solid #95A5A6;
     .title{
         .no-margin-and-padding;
+        .content;
         color: @title-color;
-        text-align: center;
         vertical-align: middle;
-        font:@medium-font e('/') @header-height @font-family;
+        font:@big-font e('/') @header-height @font-family;
+    }
+}
+
+.posts{
+    list-style: none;
+    .no-margin-and-padding;
+    .post{
+        padding-top: 10px;
+        .content;
+        .title{
+            color: #E74C3C;
+            font-size:@medium-font;
+            font-family: @font-family;
+        }
     }
 }
