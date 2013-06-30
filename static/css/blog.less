@@ -1,9 +1,10 @@
 @header-height: 120px;
 @header-color: #FFFFFF;
 @title-color: #E74C3C;
-@post-text-color: #2C3E50;
+@post-text-color: #34495E;
 @post-title-color: #2C3E50;
 @post-sub-title-color: #BDC3C7;
+@post-read-more-link-color: #16A085;
 
 @font-family: 'Vollkorn', serif;
 @post-font-family: 'Open Sans', sans-serif;
@@ -13,9 +14,16 @@
 
 @content-width: 75%;
 
-.no-margin-and-padding {
+.no-margin{
     margin: 0;
+}
+
+.no-padding{
     padding: 0;
+}
+.no-margin-and-padding {
+    .no-margin;
+    .no-padding;
 }
 
 .content{
@@ -41,13 +49,13 @@ header{
 }
 
 .posts{
+    font-family: @font-family;
     list-style: none;
     .no-margin-and-padding;
     .post{
         padding-top: 10px;
         .content;
         .title{
-            font-family: @font-family;
             .text {
                 color: @post-title-color;
                 font-size:@medium-font;
@@ -56,6 +64,16 @@ header{
             .sub-title{
                 color: @post-sub-title-color;
                 font-size:@small-font;
+            }
+        }
+        p{
+            .no-margin;
+            padding-top: 15px;
+            color: @post-text-color;
+            font-size: @small-font;
+
+            .read-more-link{
+                color:@post-read-more-link-color !important;
             }
         }
     }
