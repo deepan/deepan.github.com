@@ -1,11 +1,15 @@
 @header-height: 120px;
 @header-color: #FFFFFF;
-@title-color: #2C3E50;
+@title-color: #E74C3C;
+@post-text-color: #2C3E50;
+@post-title-color: #2C3E50;
+@post-sub-title-color: #BDC3C7;
 
 @font-family: 'Vollkorn', serif;
 @post-font-family: 'Open Sans', sans-serif;
 @big-font: 4em;
 @medium-font: 2em;
+@small-font: 1.25em;
 
 @content-width: 75%;
 
@@ -43,9 +47,16 @@ header{
         padding-top: 10px;
         .content;
         .title{
-            color: #E74C3C;
-            font-size:@medium-font;
             font-family: @font-family;
+            .text {
+                color: @post-title-color;
+                font-size:@medium-font;
+                padding-right: 10px;
+            }
+            .sub-title{
+                color: @post-sub-title-color;
+                font-size:@small-font;
+            }
         }
     }
 }

@@ -5,7 +5,10 @@ layout: basic
 <ol class="posts">
     {% for post in site.posts %}
     <li class="post">
-        <div class="title">{{ post.title }}</div>
+        <div class="title">
+            <span class="text"> {{ post.title }}</span>
+            <span class="sub-title">({{ post.date | date_to_long_string }})</span>
+        </div>
 
         <!--<span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>-->
     </li>
