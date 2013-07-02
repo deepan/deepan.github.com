@@ -10,8 +10,7 @@ layout: basic
             <span class="sub-title">({{ post.date | date_to_long_string }})</span>
         </div>
         {{ post.content | split: '<!-- more -->' | first }}
-        <a class="read-more-link" href="#">read more</a>
-        <!--<span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>-->
+        <a class="read-more-link" href="{{ post.url }}">read more</a>
     </li>
     {% endfor %}
 </ol>
