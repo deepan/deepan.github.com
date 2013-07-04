@@ -10,9 +10,10 @@ layout: basic
             <span class="sub-title">({{ post.date | date_to_long_string }})</span>
         </div>
         <div class="post-excert">
-        {{ post.excerpt }}
+            {{ post.excerpt }}
+            <a class="read-more-link" href="{{ post.url }}">read more</a>
         </div>
-        <a class="read-more-link" href="{{ post.url }}">read more</a>
+        
     </li>
     {% endfor %}
 </ol>

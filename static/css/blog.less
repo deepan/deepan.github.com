@@ -1,3 +1,10 @@
+@large-device:   ~"only screen and (min-width: 350px)";
+@small-device:   ~"only screen and (max-width: 350px)";
+
+@desktop:   ~"only screen and (min-width: 960px)";
+@tablet:   ~"only screen and (min-width: 720px) and (max-width: 959px)";
+@mobile:   ~"only screen and (min-width: 1px) and (max-width: 719px)";
+
 @header-height: 120px;
 @header-color: #FFFFFF;
 @title-color: #E74C3C;
@@ -8,11 +15,11 @@
 
 @font-family: 'Vollkorn', serif;
 @post-font-family: 'Open Sans', sans-serif;
-@big-font: 4em;
+@huge-font: 4em;
+@big-font: 3.25em;
 @medium-font: 2em;
-@small-font: 1.25em;
-
-@content-width: 75%;
+@small-font: 1.75em;
+@tiny-font: 1.25em;
 
 .no-margin{
     margin: 0;
@@ -27,7 +34,15 @@
 }
 
 .content{
-    width: @content-width;
+    @media @desktop, {
+        width: 75%;    
+    }
+    @media @tablet{
+        width: 75%;    
+    }
+    @media @mobile{
+        width: 85%;    
+    }
     margin: 0 auto;
 }
 
@@ -43,7 +58,17 @@ header{
         .content;
         color: @title-color;
         vertical-align: middle;
-        font:@big-font e('/') @header-height @font-family;
+        line-height: @header-height;
+        font-family: @font-family;
+        font-weight: normal;
+        
+        @media @large-device{
+            font-size:@huge-font;
+        }
+        
+        @media @small-device {
+            font-size:@big-font;        
+        }
     }
 }
 
@@ -68,7 +93,12 @@ body{
 
 .post-title-text{
     color: @post-title-color;
-    font-size:@medium-font;
+    @media @large-device{
+        font-size:@medium-font;
+    }
+    @media @small-device{
+        font-size:@small-font;
+    }
 }
 
 .post-content{
@@ -77,7 +107,7 @@ body{
 
 .post-content-text{
     color: @post-text-color;
-    font-size: @small-font;    
+    font-size: @tiny-font;    
 }
 
 .post-listing{
@@ -91,7 +121,7 @@ body{
             }
             .sub-title{
                 color: @post-sub-title-color;
-                font-size:@small-font;
+                font-size:@tiny-font;
             }
             .post-title;
         }
@@ -99,13 +129,15 @@ body{
             p{
                 .post-content;
                 .post-content-text;
-                display: inline;
+                &:last-of-type{
+                    display: inline;
+                }       
             }
         }
         
         .read-more-link{
             color:@post-read-more-link-color !important;
-            font-size: @small-font; 
+            font-size: @tiny-font; 
         }
     }
 }
