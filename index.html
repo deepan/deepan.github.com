@@ -2,14 +2,16 @@
 layout: basic
 ---
 
-<ol class="posts">
+<ol class="post-listing">
     {% for post in site.posts %}
-    <li class="post">
+    <li class="post-list-item">
         <div class="title">
             <span class="text"> {{ post.title }}</span>
             <span class="sub-title">({{ post.date | date_to_long_string }})</span>
         </div>
-        {{ post.content | split: '<!-- more -->' | first }}
+        <div class="post-excert">
+        {{ post.excerpt }}
+        </div>
         <a class="read-more-link" href="{{ post.url }}">read more</a>
     </li>
     {% endfor %}

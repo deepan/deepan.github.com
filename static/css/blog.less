@@ -29,7 +29,6 @@
 .content{
     width: @content-width;
     margin: 0 auto;
-
 }
 
 html, body{
@@ -48,33 +47,65 @@ header{
     }
 }
 
-.posts{
-    font-family: @font-family;
+.post{
+    .title{
+        .post-title;
+        .post-title-text;
+    }
+    p{
+        .post-content-text;
+        .post-content;
+    }
+}
+
+body{
+    font-family: @font-family;    
+}
+
+.post-title{
+    padding-bottom: 15px;
+}
+
+.post-title-text{
+    color: @post-title-color;
+    font-size:@medium-font;
+}
+
+.post-content{
+    .no-margin-and-padding;
+}
+
+.post-content-text{
+    color: @post-text-color;
+    font-size: @small-font;    
+}
+
+.post-listing{
     list-style: none;
     .no-margin-and-padding;
-    .post{
-        padding-top: 10px;
-        .content;
+    .post-list-item{
         .title{
             .text {
-                color: @post-title-color;
-                font-size:@medium-font;
+                .post-title-text;
                 padding-right: 10px;
             }
             .sub-title{
                 color: @post-sub-title-color;
                 font-size:@small-font;
             }
+            .post-title;
         }
-        p{
-            .no-margin;
-            padding-top: 15px;
-            color: @post-text-color;
-            font-size: @small-font;
-
-            .read-more-link{
-                color:@post-read-more-link-color !important;
+        .post-excert{
+            p{
+                .post-content;
+                .post-content-text;
+                display: inline;
             }
+        }
+        
+        .read-more-link{
+            color:@post-read-more-link-color !important;
+            font-size: @small-font; 
         }
     }
 }
