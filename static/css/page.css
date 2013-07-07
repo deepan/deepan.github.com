@@ -122,18 +122,19 @@ header .content .back_container .back {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  padding: 4 7 0 7px;
+  padding: 2 8 0 4px;
   text-decoration: none;
-  color: #2980b9;
+  background-color: #3498db;
+  color: white;
 }
 header .content .back_container .back:hover {
-  background-color: #2980b9;
-  color: white;
+  color: #3498db;
+  background-color: white;
 }
 @media only screen and (min-width: 960px) {
   header .content .back_container {
     text-align: right;
-    font-size: 2em;
+    font-size: 1.75em;
     line-height: 120px;
     width: 20%;
   }
@@ -141,7 +142,7 @@ header .content .back_container .back:hover {
 @media only screen and (min-width: 720px) and (max-width: 959px) {
   header .content .back_container {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.75em;
     line-height: 120px;
     width: 20%;
   }
@@ -149,7 +150,7 @@ header .content .back_container .back:hover {
 @media only screen and (min-width: 430px) and (max-width: 719px) {
   header .content .back_container {
     text-align: left;
-    font-size: 2em;
+    font-size: 1.75em;
     line-height: 60px;
     clear: both;
     width: 100%;

@@ -11,7 +11,7 @@
 @post-title-color: #2C3E50;
 @post-sub-title-color: #BDC3C7;
 @post-read-more-link-color: #16A085;
-@back-button-color:#2980B9;
+@back-button-color:#3498DB;
 
 @font-family: 'Vollkorn', serif;
 @post-font-family: 'Open Sans', sans-serif;
@@ -125,12 +125,13 @@ header{
         .back_container{
             .back{
                 .rounded(2px);
-                padding: 4 7 0 7px;
+                padding: 2 8 0 4px;
                 text-decoration: none;
-                color: @back-button-color;
+                background-color: @back-button-color;
+                color: white;
                 &:hover{
-                    background-color: @back-button-color;
-                    color: white;
+                    color: @back-button-color;
+                    background-color: white;
                 }
             }
             .no-margin-and-padding;
@@ -140,19 +141,19 @@ header{
 
             @media @desktop{
                 text-align: right;
-                font-size:@medium-font;
+                font-size:@small-font;
                 line-height: @back-height-for-desktop-and-tablets;
                 width: 20%;
             }
             @media @tablet{
                 text-align: center;
-                font-size:@medium-font;
+                font-size:@small-font;
                 line-height: @back-height-for-desktop-and-tablets;
                 width: 20%;
             }
             @media @mobile {
                 text-align: left;
-                font-size:@medium-font;
+                font-size:@small-font;
                 line-height: @back-height-for-mobile;
                 clear: both;
                 width: 100%;
