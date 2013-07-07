@@ -21,12 +21,13 @@
 @small-font: 1.75em;
 @tiny-font: 1.25em;
 
-@title-height-for-desktop-tablet-and-mobile: 120px;
-@title-height-for-mini-mobile: 80px;
+@title-height-for-desktop-and-tablet: 120px;
+@title-height-for-mobile: 80px;
+@title-height-for-mini-mobile: 70px;
 
 @back-height-for-desktop-and-tablets: 120px;
-@back-height-for-mobile: 80px;
-@back-height-for-mini-mobile: 60px;
+@back-height-for-mobile: 60px;
+@back-height-for-mini-mobile: 50px;
 
 .no-margin{
     margin: 0;
@@ -96,7 +97,6 @@ body, .title{
 }
 
 header{
-
     background: @header-color;
     .content{
         .title{
@@ -107,12 +107,12 @@ header{
 
             @media @desktop, @tablet{
                 font-size:@huge-font;
-                line-height: @title-height-for-desktop-tablet-and-mobile;
+                line-height: @title-height-for-desktop-and-tablet;
                 width: 80%;
             }
             @media @mobile {
                 font-size:@huge-font;
-                line-height: @title-height-for-desktop-tablet-and-mobile;
+                line-height: @title-height-for-mobile;
                 width: 100%;
             }
             @media @mini-mobile {

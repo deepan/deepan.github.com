@@ -5,7 +5,15 @@
 }
 
 header{
-    height: @title-height-for-desktop-tablet-and-mobile;
+    @media @desktop, @tablet{
+        height: @title-height-for-desktop-and-tablet;
+    }
+    @media @mobile {
+        height: @title-height-for-mobile;
+    }
+    @media @mini-mobile {
+        height: @title-height-for-mini-mobile;
+    }
 }
 
 .post-listing{
