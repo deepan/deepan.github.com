@@ -159,7 +159,7 @@ header .content .back_container .back:hover {
 @media only screen and (min-width: 1px) and (max-width: 429px) {
   header .content .back_container {
     text-align: left;
-    font-size: 1.75em;
+    font-size: 1.5em;
     line-height: 50px;
     clear: both;
     width: 100%;
