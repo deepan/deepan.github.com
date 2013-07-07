@@ -1,12 +1,8 @@
-@large-device:   ~"only screen and (min-width: 430px)";
-@small-device:   ~"only screen and (max-width: 430px)";
-
 @desktop:       ~"only screen and (min-width: 960px)";
 @tablet:        ~"only screen and (min-width: 720px) and (max-width: 959px)";
-@mobile:        ~"only screen and (min-width: 550px) and (max-width: 719px)";
-@mini-mobile:   ~"only screen and (min-width: 1px) and (max-width: 549px)";
+@mobile:        ~"only screen and (min-width: 430px) and (max-width: 719px)";
+@mini-mobile:   ~"only screen and (min-width: 1px) and (max-width: 429px)";
 
-@header-height: 120px;
 @header-color: #FFFFFF;
 @title-color: #E74C3C;
 @post-text-color: #34495E;
@@ -37,7 +33,7 @@
 
 .content{
     @media @desktop, {
-        width: 75%;    
+        width: 75%;
     }
     @media @tablet{
         width: 85%;
@@ -48,7 +44,8 @@
     @media @mini-mobile{
         width: 85%;
     }
-    margin: 0 auto;
+
+margin: 0 auto;
 }
 
 html, body{
@@ -65,71 +62,86 @@ body, .title{
     line-height: @line-height;
 }
 
+@title-height-for-desktop-tablet-and-mobile: 120px;
+@title-height-for-mini-mobile: 100px;
+
+@back-height-for-desktop-and-tablets: 120px;
+@back-height-for-mobile: 80px;
+@back-height-for-mini-mobile: 60px;
+
 header{
-    height: @header-height;
-
+    @media @desktop{
+        height: @title-height-for-desktop-tablet-and-mobile;
+    }
+    @media @tablet{
+        height: @title-height-for-desktop-tablet-and-mobile;
+    }
+    @media @mobile {
+        height: @title-height-for-desktop-tablet-and-mobile + @back-height-for-mobile;
+    }
     @media @mini-mobile {
-        height: 200px;
+        height: @title-height-for-mini-mobile + @back-height-for-mini-mobile;
     }
-    @media @small-device {
-        height: 160px;
-    }
-
 
 background: @header-color;
     .content{
         .title{
             .no-margin-and-padding;
-            .center-text(@header-height);
-            width: 80%;
+            vertical-align: middle;
             color: @title-color;
             float: left;
 
-            @media @large-device{
+            @media @desktop, @tablet{
                 font-size:@huge-font;
+                line-height: @title-height-for-desktop-tablet-and-mobile;
+                width: 80%;
             }
-
-            @media @small-device {
+            @media @mobile {
+                font-size:@huge-font;
+                line-height: @title-height-for-desktop-tablet-and-mobile;
+                width: 100%;
+            }
+            @media @mini-mobile {
                 font-size:@big-font;
-                line-height: 100px;
+                line-height: @title-height-for-mini-mobile;
+                width: 100%;
             }
         }
         .back{
             .no-margin-and-padding;
-            .center-text(@header-height);
-            width: 20%;
+            vertical-align: middle;
             overflow: hidden;
 
             color: @back-button-color;
 
             @media @desktop{
                 text-align: right;
+                font-size:@medium-font;
+                line-height: @back-height-for-desktop-and-tablets;
+                width: 20%;
             }
             @media @tablet{
                 text-align: center;
+                font-size:@medium-font;
+                line-height: @back-height-for-desktop-and-tablets;
+                width: 20%;
             }
             @media @mobile {
                 text-align: left;
+                font-size:@medium-font;
+                line-height: @back-height-for-mobile;
+                clear: both;
+                width: 100%;
             }
             @media @mini-mobile {
                 text-align: left;
-                clear: both;
-                line-height: 80px;
-                width: 100%;
-
-            }
-
-            @media @large-device{
-                font-size:@medium-font;
-            }
-
-            @media @small-device {
                 font-size:@small-font;
-                line-height: 60px;
+                line-height: @back-height-for-mini-mobile;
+                clear: both;
+                width: 100%;
             }
         }
     }
-
 }
 
 .post{
@@ -149,10 +161,17 @@ background: @header-color;
 
 .post-title-text{
     color: @post-title-color;
-    @media @large-device{
+
+    @media @desktop{
         font-size:@medium-font;
     }
-    @media @small-device{
+    @media @tablet{
+        font-size:@medium-font;
+    }
+    @media @mobile {
+        font-size:@medium-font;
+    }
+    @media @mini-mobile {
         font-size:@small-font;
     }
 }
