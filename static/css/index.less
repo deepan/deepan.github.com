@@ -3,3 +3,35 @@
 .back{
     display: none;
 }
+
+.post-listing{
+    list-style: none;
+    .no-margin-and-padding;
+    .post-list-item{
+        .title{
+            .text {
+                .post-title-text;
+                padding-right: 10px;
+            }
+            .sub-title{
+                color: @post-sub-title-color;
+                font-size:@tiny-font;
+            }
+            .post-title;
+        }
+        .post-excert{
+            p{
+                .post-content;
+                .post-content-text;
+                &:last-of-type{
+                    display: inline;
+                }
+            }
+        }
+
+        .read-more-link{
+            color:@post-read-more-link-color !important;
+            font-size: @tiny-font;
+        }
+    }
+}
