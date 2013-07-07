@@ -165,7 +165,7 @@ header .content .back_container .back:hover {
   }
 }
 .back {
-  visibility: hidden;
+  display: none;
 }
 @media only screen and (min-width: 960px), only screen and (min-width: 720px) and (max-width: 959px) {
   header {
