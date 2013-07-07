@@ -214,3 +214,7 @@ header .content .back_container .back:hover {
   margin: 0;
   padding: 0;
 }
+.post .text p:first-of-type {
+  margin: 0;
+  padding: 0;
+}
