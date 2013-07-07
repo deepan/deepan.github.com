@@ -1,6 +1,8 @@
 <html>
 <head>
-    <link rel="stylesheet/less" type="text/css" href="/static/css/blog.less" />
+    {% for less_file in page.less_files %}
+        <link rel="stylesheet/less" type="text/css" href="{{ less_file }}">
+    {% endfor %}
     <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
     <title>Work log</title>
 </head>
@@ -8,7 +10,9 @@
         <header>
             <div class="content">
                 <h2 class="title">On coding</h2>
-                <h1 class="back">< back</h1>
+                <div class="back_container">
+                    <a href="#" class="back">< back</a>
+                </div>
             </div>
         </header>
         <div class="content">

@@ -1,3 +1,5 @@
+@import "elements.less";
+
 @desktop:       ~"only screen and (min-width: 960px)";
 @tablet:        ~"only screen and (min-width: 720px) and (max-width: 959px)";
 @mobile:        ~"only screen and (min-width: 430px) and (max-width: 719px)";
@@ -107,12 +109,22 @@ background: @header-color;
                 width: 100%;
             }
         }
-        .back{
+
+        .back_container{
+            .back{
+                .rounded(2px);
+                padding: 4 7 0 7px;
+                text-decoration: none;
+                color: @back-button-color;
+                &:hover{
+                    background-color: @back-button-color;
+                    color: white;
+                }
+            }
             .no-margin-and-padding;
             vertical-align: middle;
             overflow: hidden;
 
-            color: @back-button-color;
 
             @media @desktop{
                 text-align: right;
