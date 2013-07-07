@@ -8,7 +8,7 @@ less_files:
     {% for post in site.posts %}
     <li class="post-list-item">
         <div class="title">
-            <span class="text"> {{ post.title }}</span>
+            <a class="text" href="{{ post.url }}"> {{ post.title }}</a>
             <span class="sub-title">({{ post.date | date_to_long_string }})</span>
         </div>
         <div class="post-excert">
