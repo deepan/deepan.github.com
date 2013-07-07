@@ -108,7 +108,7 @@ header .content .title {
 @media only screen and (min-width: 1px) and (max-width: 429px) {
   header .content .title {
     font-size: 3.25em;
-    line-height: 100px;
+    line-height: 80px;
     width: 100%;
   }
 }
@@ -181,7 +181,7 @@ header .content .back_container .back:hover {
 }
 @media only screen and (min-width: 1px) and (max-width: 429px) {
   header {
-    height: 160px;
+    height: 140px;
   }
 }
 .post .title {
