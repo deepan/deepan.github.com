@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Coverage obsession !!!
-date: 2013-07-10 15:50:00
+date: 2013-07-09 15:50:00
 ---
 
 I have paired with a few who cannot resist not writing a unit test. They would insist writing test to cover every single line of
