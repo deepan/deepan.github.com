@@ -38,7 +38,7 @@
   }
 }
 .post-title {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 .post-title-text {
   color: #2c3e50;
@@ -186,7 +186,7 @@ header .content .back_container .back:hover {
   }
 }
 .post .title {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   color: #2c3e50;
 }
 @media only screen and (min-width: 960px) {

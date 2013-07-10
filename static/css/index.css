@@ -38,7 +38,7 @@
   }
 }
 .post-title {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 .post-title-text {
   color: #2c3e50;
@@ -188,8 +188,11 @@ header .content .back_container .back:hover {
   margin: 0;
   padding: 0;
 }
+.post-listing .post-list-item {
+  padding-bottom: 30px;
+}
 .post-listing .post-list-item .title {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 .post-listing .post-list-item .title .text {
   color: #2c3e50;
