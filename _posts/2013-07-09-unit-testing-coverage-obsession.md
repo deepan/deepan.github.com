@@ -5,7 +5,7 @@ date: 2013-07-09 15:50:00
 ---
 
 I have paired with a few who cannot resist not writing a unit test. They would insist writing test to cover every single line of
-code and wouldn't bother even if it is as dumb as an one-to-one property transformation from model to another<!--rm-->.  I have always
+code<!--rm--> and wouldn't bother even if it is as dumb as an one-to-one property transformation from model to another.  I have always
 wondered, what would cause such a practise? Probably some kind of obsession on following unit testing just as a practice,
 without realizing the real benefit!
 
