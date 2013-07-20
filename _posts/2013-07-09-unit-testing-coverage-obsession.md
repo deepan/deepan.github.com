@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Coverage obsession !
+title: Coverage obsession!
 date: 2013-07-09 15:50:00
 ---
 
