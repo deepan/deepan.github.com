@@ -1,6 +1,6 @@
 ---
 layout: page
-title: How to retain your star developers !
+title: How to retain your star developers!
 date: 2013-07-16 12:25:00
 ---
 
