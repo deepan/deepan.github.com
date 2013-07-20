@@ -1,6 +1,6 @@
 ---
 layout: page
-title: When agile is followed as a practice
+title: When agile is followed just as a practice
 date: 2013-07-19 12:25:00
 ---
 
