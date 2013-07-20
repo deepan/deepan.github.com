@@ -19,7 +19,7 @@ body{
 .name{
     font-weight: 500;
     font-size: 4em;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
     text-align: left;
     color: #3E4044;
 }
@@ -50,12 +50,46 @@ body{
     vertical-align: middle;
 }
 
+.phone, .email{
+    padding-top: 5px !important;
+    padding-bottom: 5px;
+}
+
+.social{
+    padding-top: 5px !important;
+}
 
 .phone{
-    padding-top: 5px !important;
-    padding-bottom: 8px;
     .contact-value{
         padding-top: 3px;
     }
 }
 
+.social-icon{
+    display: inline-block;
+    vertical-align: middle;
+    width:30px;
+    height:30px;
+    &:hover{
+        background-position:0 30px;
+    }
+}
+
+.social{
+    .social-wrapper{
+        display: inline-block;
+        padding: 3px;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 9px;
+        border-color: #B0B0B0;
+    }
+    .linkedin{
+            .social-icon;
+            background:url(/static/img/linkedin.png) 0 0;
+    }
+    .blog{
+            .social-icon;
+            background:url(/static/img/blog.png) 0 0;
+    }
+}
