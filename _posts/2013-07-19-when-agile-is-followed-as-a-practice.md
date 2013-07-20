@@ -4,7 +4,7 @@ title: When agile is followed as a practice
 date: 2013-07-19 12:25:00
 ---
 
-Agile, It's no more a buzz word, it's mainstream now... The real value agile brings to your team is the change in mindset.
+Agile, It's no more a buzz word, it's mainstream now. The real value agile brings to your team is the change in mindset.
 <!--rm-->With agile you take small iterative steps, involve end users early and look for constant feedback, expect
 changes to assumptions and business, improve predictability, equip yourself with tools, coding principles and best
 practices to ensure quality and finally deliver a product that is meaningful to user.
