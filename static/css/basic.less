@@ -6,6 +6,8 @@
 @mini-mobile:   ~"only screen and (min-width: 1px) and (max-width: 429px)";
 
 @header-color: #FFFFFF;
+@text-selection-background-color: #D65858;
+@text-selection-text-color:#FFFFFF;
 @title-color: #E74C3C;
 @post-text-color: #34495E;
 @post-title-color: #2C3E50;
@@ -95,6 +97,16 @@ html, body{
 body, .title{
     font-family: @font-family;
     font-weight: normal !important;
+    ::-moz-selection
+    {
+        background:@text-selection-background-color;
+        color:@text-selection-text-color;
+    }
+    ::selection
+    {
+        background:@text-selection-background-color;
+        color:@text-selection-text-color;
+    }
 }
 
 header{

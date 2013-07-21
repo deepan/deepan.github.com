@@ -81,6 +81,16 @@ body,
   font-family: 'Vollkorn', serif;
   font-weight: normal !important;
 }
+body ::-moz-selection,
+.title ::-moz-selection {
+  background: #d65858;
+  color: #ffffff;
+}
+body ::selection,
+.title ::selection {
+  background: #d65858;
+  color: #ffffff;
+}
 header {
   background: #ffffff;
 }
