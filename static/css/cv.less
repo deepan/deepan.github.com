@@ -1,3 +1,5 @@
+@import "/static/lib/lesshat/css/lesshat.less";
+
 body{
     font-family: 'Open Sans', sans-serif !important;
     text-rendering: optimizeLegibility;
@@ -65,18 +67,49 @@ body{
     }
 }
 
-.social-icon{
+.social-media(@icon-image-path){
     display: inline-block;
-    vertical-align: middle;
-    width:30px;
-    height:30px;
+    padding: 2px;
     &:hover{
         background-position:0 30px;
+        > .social-link-hint{
+        display: inline;
+        }
     }
+    .social-icon{
+        display: inline-block;
+        vertical-align: middle;
+        width:30px;
+        height:30px;
+        background:url(@icon-image-path) 0 0;
+        .transition(~"background 250ms ease-in-out");
+//        &:hover{
+//            background-position:0 30px;
+//            + .social-link-hint{
+//                display: inline;
+//            }
+//        }
+    }
+    .social-link-hint{
+        display: none;
+        -webkit-animation: fadeIn 500ms;
+        animation: fadeIn 500ms;
+    }
+
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .social{
-    .social-wrapper{
+    .social-container{
         display: inline-block;
         padding: 3px;
         border-style: solid;
@@ -84,16 +117,14 @@ body{
         border-radius: 9px;
         border-color: #B0B0B0;
     }
+
     .linkedin{
-            .social-icon;
-            background:url(/static/img/linkedin.png) 0 0;
+        .social-media("/static/img/linkedin.png");
     }
     .blog{
-            .social-icon;
-            background:url(/static/img/blog.png) 0 0;
+        .social-media("/static/img/blog.png");
     }
     .github{
-            .social-icon;
-            background:url(/static/img/github.png) 0 0;
+        .social-media("/static/img/github.png");
     }
 }
