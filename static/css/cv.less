@@ -35,7 +35,6 @@ body{
 }
 
 .contact-element{
-    font-size: 20px;
     padding-top: 0px;
     padding-bottom: 0;
     display: inline-block;
@@ -57,6 +56,10 @@ body{
     padding-bottom: 5px;
 }
 
+.email{
+    letter-spacing: 1px;
+}
+
 .social{
     padding-top: 5px !important;
 }
@@ -70,12 +73,6 @@ body{
 .social-media(@icon-image-path){
     display: inline-block;
     padding: 2px;
-    &:hover{
-        background-position:0 30px;
-        > .social-link-hint{
-        display: inline;
-        }
-    }
     .social-icon{
         display: inline-block;
         vertical-align: middle;
@@ -83,15 +80,13 @@ body{
         height:30px;
         background:url(@icon-image-path) 0 0;
         .transition(~"background 250ms ease-in-out");
-//        &:hover{
-//            background-position:0 30px;
-//            + .social-link-hint{
-//                display: inline;
-//            }
-//        }
+        &:hover{
+            background-position:0 30px;
+        }
     }
     .social-link-hint{
-        display: none;
+        color: #3E4044;
+        font-weight: 100;
         -webkit-animation: fadeIn 500ms;
         animation: fadeIn 500ms;
     }
