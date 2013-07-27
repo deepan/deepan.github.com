@@ -1,12 +1,14 @@
 @import "/static/lib/lesshat/css/lesshat.less";
 
-@text-color-dark: #34495e;
-@text-color-link: #9F9999;
-@link-text-color: #16A085;
-@name-color: #E74C3C;
+@text-color: #34495e;
+@text-color-dark: #2C3E50;  
+@text-color-light: #9F9999;
+@text-color-link: #16A085;
+@text-color-extra-dark: #E74C3C;
 
 body{
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: 'Vollkorn', serif !important;
+//    font-family: 'Open Sans', sans-serif !important;
     text-rendering: optimizeLegibility;
 }
 
@@ -21,29 +23,26 @@ body{
 }
 
 .name{
-    font-weight: 500;
     font-size: 4em;
     padding-bottom: 10px;
-    text-align: left;
-    color: @name-color;
+    color: @text-color-extra-dark;
 }
 
 .role{
     font-weight: 100;
     font-size: 1.7em;
-    color: @text-color-link;
-    text-align: left;
+    color: @text-color-dark;
 }
 
 .summary, .education{
     line-height: 150%;
-    color: @text-color-dark;
+    color: @text-color;
     margin: 20px auto;
 }
 
 .sub-heading{
     font-size: 1.3em;
-    color: #000000;
+    color : @text-color-dark;
 }
 
 .blog-link{
@@ -51,6 +50,9 @@ body{
     &:hover{
         text-decoration: underline;
     }
-    color:@link-text-color;
+    color:@text-color-link;
 }
 
+.college-year{
+    color: @text-color-light;
+}
