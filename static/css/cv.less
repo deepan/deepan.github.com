@@ -2,9 +2,13 @@
 
 @text-color: #34495e;
 @text-color-dark: #2C3E50;  
-@text-color-light: #9F9999;
+@text-color-light: #7F8C8D;
 @text-color-link: #16A085;
 @text-color-extra-dark: #E74C3C;
+@text-selection-background-color: #D65858;
+@text-selection-text-color:#FFFFFF;
+@text-line-height: 1.5em;
+@year-width: 100px;
 
 body{
     font-family: 'Vollkorn', serif !important;
@@ -20,12 +24,24 @@ body{
 .body{
     width: 80%;
     margin: 30px auto;
+    ::-moz-selection
+    {
+        background:@text-selection-background-color;
+        color:@text-selection-text-color;
+    }
+    ::selection
+    {
+        background:@text-selection-background-color;
+        color:@text-selection-text-color;
+    }
 }
 
-.name{
-    font-size: 4em;
-    padding-bottom: 10px;
-    color: @text-color-extra-dark;
+.name-and-role{
+    >.name{
+        font-size: 4em;
+        padding-bottom: 10px;
+        color: @text-color-extra-dark;    
+    }
 }
 
 .role{
@@ -34,8 +50,8 @@ body{
     color: @text-color-dark;
 }
 
-.summary, .education{
-    line-height: 150%;
+.summary, .education, .experience{
+    line-height: @text-line-height;
     color: @text-color;
     margin: 20px auto;
 }
@@ -53,6 +69,38 @@ body{
     color:@text-color-link;
 }
 
-.college-year{
+.college-year, .experience-summary, .company-name > .duration{
     color: @text-color-light;
 }
+
+.experience-line-item{
+    position: relative;
+    
+    .year-container{
+        position: absolute;
+        width: @year-width;
+        height: 100%;
+    }
+    .year{
+        position: absolute;
+        top: 50%;
+        margin-top: (-1 * @text-line-height/2);
+    }
+    .details{
+        overflow: hidden;
+        margin-left: 100px;
+    }
+}
+.company{
+    >.company-name{
+        margin: 5px 0;
+        >.name{
+            text-decoration: underline;
+        }
+        >.duration{
+            margin-left: 3px;
+            font-size: 0.9em;
+        }
+    }
+}
+
