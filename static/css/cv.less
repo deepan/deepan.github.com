@@ -50,7 +50,7 @@ body{
     color: @text-color-dark;
 }
 
-.summary, .education, .experience{
+.summary, .education, .experience, .social{
     line-height: @text-line-height;
     color: @text-color;
     margin: 20px auto;
@@ -106,3 +106,62 @@ body{
     }
 }
 
+.social-icon(@background-url, @tip-class){
+     float: left;
+     width:25px;
+     height:25px;
+     margin: 5px 4px;
+     background:url(@background-url) 0 0;
+    .transition(~"background 500ms ease-in-out");
+    &:hover{
+        background-position:0 25px;
+        ~ div{
+            >.@{tip-class}{
+                display: inline;
+            }
+        }
+    }
+ }
+
+.social{
+    >.social-sub-heading{
+        float: left;
+        line-height: 35px;
+        padding-top: 2px;
+    }
+    >.social-wrapper{
+        display: inline-block;
+        margin-left: 15px;
+
+        >.blog{
+            .social-icon("/static/img/blog.png", blog-tip);
+        }
+        >.github{
+            .social-icon("/static/img/github.png", github-tip);
+        }
+        >.linkedin{
+            .social-icon("/static/img/linkedin.png", linkedin-tip);
+        }
+
+        >.tip{
+            clear: left;
+            text-align: center;
+            >span{
+                display: none;
+                .border-radius(2px);
+                -webkit-animation: fadeIn 250ms;
+                animation: fadeIn 250ms;
+             }
+        }
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
