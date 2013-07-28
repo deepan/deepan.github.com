@@ -1,5 +1,10 @@
 @import "/static/lib/lesshat/css/lesshat.less";
 
+@desktop:       ~"only screen and (min-width: 960px)";
+@tablet:        ~"only screen and (min-width: 720px) and (max-width: 959px)";
+@mobile:        ~"only screen and (min-width: 430px) and (max-width: 719px)";
+@mini-mobile:   ~"only screen and (min-width: 1px) and (max-width: 429px)";
+
 @text-color: #34495e;
 @text-color-dark: #2C3E50;  
 @text-color-light: #7F8C8D;
@@ -16,13 +21,29 @@ body{
     text-rendering: optimizeLegibility;
 }
 
+.content-width{
+    @media @desktop, {
+        width: 80%;
+    }
+    @media @tablet{
+        width: 90%;
+    }
+    @media @mobile{
+        width: 95%;
+    }
+    @media @mini-mobile{
+        width: 95%;
+    }
+}
+
 .header, .body{
-    width: 80%;
+
+    .content-width;
     margin: 15px auto;
 }
 
 .body{
-    width: 80%;
+    .content-width;
     margin: 30px auto;
     ::-moz-selection
     {
