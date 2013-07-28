@@ -73,27 +73,29 @@ body{
     color: @text-color-light;
 }
 
-.experience-line-item{
-    position: relative;
-    
-    .year-container{
-        position: absolute;
-        width: @year-width;
-        height: 100%;
-    }
-    .year{
-        position: absolute;
-        top: 50%;
-        margin-top: (-1 * @text-line-height/2);
-    }
-    .details{
-        overflow: hidden;
-        margin-left: 100px;
-    }
-}
 .company{
+    margin: 15px 0;
+    >.experience-line-item{
+        position: relative;
+        margin: 5px 0 10px 0;
+        
+        .year-container{
+            position: absolute;
+            width: @year-width;
+            height: 100%;
+        }
+        .year{
+            position: absolute;
+            top: 50%;
+            margin-top: (-1 * @text-line-height/2);
+        }
+        .details{
+            overflow: hidden;
+            margin-left: 100px;
+        }
+    }
+
     >.company-name{
-        margin: 5px 0;
         >.name{
             text-decoration: underline;
         }
