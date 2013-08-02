@@ -22,7 +22,7 @@
    inkscape:export-ydpi="89.989998"><metadata
      id="metadata9"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
      id="defs7" /><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -50,7 +50,10 @@
      fit-margin-right="0"
      fit-margin-bottom="0" /><g
      id="g3845"
-     transform="matrix(0.83333332,0,0,0.83583467,0,9.8351811)"><g
+     transform="matrix(0.83333332,0,0,0.83583467,0,9.8351811)"
+     inkscape:export-filename="/Users/deepansubramani/Projects/sdeepan.github.com/static/img/github.png"
+     inkscape:export-xdpi="89.989998"
+     inkscape:export-ydpi="89.989998"><g
        id="g3829"><path
          transform="matrix(0.29116163,0,0,0.25695204,35.417092,40.732527)"
          d="m -22.144066,16.608051 c 0,30.025802 -21.480846,54.366524 -47.978813,54.366524 -26.497967,0 -47.978811,-24.340722 -47.978811,-54.366524 0,-30.025802 21.480844,-54.366523 47.978811,-54.366523 26.497967,0 47.978813,24.340721 47.978813,54.366523 z"

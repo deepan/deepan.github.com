@@ -6,14 +6,16 @@
 @mini-mobile:   ~"only screen and (min-width: 1px) and (max-width: 429px)";
 
 @text-color: #34495e;
+@text-color-more-dark: #1B2A38;
 @text-color-dark: #2C3E50;  
 @text-color-light: #7F8C8D;
 @text-color-link: #16A085;
 @text-color-extra-dark: #E74C3C;
 @text-selection-background-color: #D65858;
 @text-selection-text-color:#FFFFFF;
+@experience-seperator-color:#BDC3C7;
 @text-line-height: 1.5em;
-@year-width: 100px;
+@year-width:100px;
 
 body{
     font-family: 'Vollkorn', serif !important;
@@ -36,7 +38,6 @@ body{
 }
 
 .header, .body{
-
     .content-width;
     margin: 15px auto;
 }
@@ -58,7 +59,19 @@ body{
 
 .name-and-role{
     >.name{
-        font-size: 4em;
+        @media @desktop, {
+            font-size: 4em;
+        }
+        @media @tablet{
+            font-size: 4em;
+        }
+        @media @mobile{
+            font-size: 3.5em;
+        }
+        @media @mini-mobile{
+            font-size: 3.5em;
+        }
+
         padding-bottom: 10px;
         color: @text-color-extra-dark;    
     }
@@ -72,7 +85,7 @@ body{
 
 .summary, .education, .experience, .social{
     line-height: @text-line-height;
-    color: @text-color;
+    color: @text-color-more-dark;
     margin: 20px auto;
 }
 
@@ -82,10 +95,7 @@ body{
 }
 
 .link{
-    text-decoration: none;
-    &:hover{
-        text-decoration: underline;
-    }
+    text-decoration: underline;
     color:@text-color-link;
 }
 
@@ -93,26 +103,63 @@ body{
     color: @text-color-light;
 }
 
-.company{
-    margin: 10px 0;
-    >.experience-line-item{
-        position: relative;
-        margin: 5px 0 10px 0;
-        
-        .year-container{
-            position: absolute;
-            width: @year-width;
-            height: 100%;
-        }
-        .year{
-            position: absolute;
+.exp-year-and-desc(@year-position, @year-top-bottom-padding, @year-width-param){
+    >.year-container{
+        position: @year-position;
+        width: @year-width;
+        height: 100%;
+        padding: @year-top-bottom-padding 0;
+        >.year{
+            position: @year-position;
             top: 50%;
             margin-top: (-1 * @text-line-height/2);
         }
-        .details{
-            overflow: hidden;
-            margin-left: 100px;
-        }
+    }
+    >.details{
+        overflow: hidden;
+        margin-left: @year-width-param;
+    }
+}
+
+.exp-year-and-desc-large-device{
+    .exp-year-and-desc(absolute, 0px, @year-width);
+}
+
+.exp-year-and-desc-small-device{
+    .exp-year-and-desc(relative, 10px, 0);
+}
+
+.exp-year-and-desc-for-media{
+    @media @desktop, {
+        .exp-year-and-desc-large-device;
+    }
+    @media @tablet{
+        .exp-year-and-desc-large-device;
+    }
+    @media @mobile{
+        .exp-year-and-desc-small-device;
+    }
+    @media @mini-mobile{
+        .exp-year-and-desc-small-device;
+    }
+}
+
+
+.company{
+    margin: 10px 0;
+    >.experience-line-item{
+         position: relative;
+         margin: 5px 0 10px 0;
+
+         border-bottom-style: dotted;
+         border-width: 1px;
+         border-color: @experience-seperator-color;
+
+         >.experience-container{
+            margin-bottom: 5px;
+            position: relative;
+              .exp-year-and-desc-for-media;
+          }
     }
 
     >.company-name{
