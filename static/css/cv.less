@@ -103,11 +103,11 @@ body{
     color: @text-color-light;
 }
 
-.exp-year-and-desc(@year-position, @year-top-bottom-padding, @year-width-param){
+.exp-year-and-desc(@year-position, @year-top-bottom-padding, @year-width-param, @year-height){
     >.year-container{
         position: @year-position;
         width: @year-width;
-        height: 100%;
+        height: @year-height;
         padding: @year-top-bottom-padding 0;
         >.year{
             position: @year-position;
@@ -122,11 +122,11 @@ body{
 }
 
 .exp-year-and-desc-large-device{
-    .exp-year-and-desc(absolute, 0px, @year-width);
+    .exp-year-and-desc(absolute, 0px, @year-width, 100%);
 }
 
 .exp-year-and-desc-small-device{
-    .exp-year-and-desc(relative, 10px, 0);
+    .exp-year-and-desc(relative, 10px, 0, auto);
 }
 
 .exp-year-and-desc-for-media{
