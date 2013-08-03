@@ -57,21 +57,24 @@ body{
     }
 }
 
+.media-font-size(@p-desktop, @p-tablet, @p-mobile, @p-mini-mobile){
+    @media @desktop, {
+        font-size: @p-desktop;
+    }
+    @media @tablet{
+        font-size: @p-tablet;
+    }
+    @media @mobile{
+        font-size: @p-mobile;
+    }
+    @media @mini-mobile{
+        font-size: @p-mini-mobile;
+    }
+}
+
 .name-and-role{
     >.name{
-        @media @desktop, {
-            font-size: 4em;
-        }
-        @media @tablet{
-            font-size: 4em;
-        }
-        @media @mobile{
-            font-size: 3.5em;
-        }
-        @media @mini-mobile{
-            font-size: 3.5em;
-        }
-
+        .media-font-size(4em, 4em, 3.5em, 3.25em);
         padding-bottom: 10px;
         color: @text-color-extra-dark;    
     }
@@ -79,7 +82,7 @@ body{
 
 .role{
     font-weight: 100;
-    font-size: 1.7em;
+    .media-font-size(1.7em, 1.7em, 1.5em, 1.4em);
     color: @text-color-dark;
 }
 
