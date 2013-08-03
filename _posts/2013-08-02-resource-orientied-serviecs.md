@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Why should you go for resource oriented services?
+title: Resource oriented services
 date: 2013-08-02 12:25:00
 ---
 
