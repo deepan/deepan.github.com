@@ -113,6 +113,26 @@ body ::selection,
 header {
   background: #ffffff;
 }
+@media only screen and (min-width: 960px) {
+  header {
+    height: 120px;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  header {
+    height: 120px;
+  }
+}
+@media only screen and (min-width: 430px) and (max-width: 719px) {
+  header {
+    height: 140px;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 429px) {
+  header {
+    height: 120px;
+  }
+}
 header .content .title {
   margin: 0;
   padding: 0;
@@ -141,13 +161,14 @@ header .content .title {
     width: 100%;
   }
 }
-header .content .back_container {
+header .content .right_links_container {
   margin: 0;
   padding: 0;
   vertical-align: middle;
   overflow: hidden;
 }
-header .content .back_container .back {
+header .content .right_links_container .back,
+header .content .right_links_container .profile {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -156,12 +177,13 @@ header .content .back_container .back {
   background-color: #3498db;
   color: white;
 }
-header .content .back_container .back:hover {
+header .content .right_links_container .back:hover,
+header .content .right_links_container .profile:hover {
   color: #3498db;
   background-color: white;
 }
 @media only screen and (min-width: 960px) {
-  header .content .back_container {
+  header .content .right_links_container {
     text-align: right;
     font-size: 1.5em;
     line-height: 120px;
@@ -169,7 +191,7 @@ header .content .back_container .back:hover {
   }
 }
 @media only screen and (min-width: 720px) and (max-width: 959px) {
-  header .content .back_container {
+  header .content .right_links_container {
     text-align: center;
     font-size: 1.5em;
     line-height: 120px;
@@ -177,7 +199,7 @@ header .content .back_container .back:hover {
   }
 }
 @media only screen and (min-width: 430px) and (max-width: 719px) {
-  header .content .back_container {
+  header .content .right_links_container {
     text-align: left;
     font-size: 1.5em;
     line-height: 60px;
@@ -186,7 +208,7 @@ header .content .back_container .back:hover {
   }
 }
 @media only screen and (min-width: 1px) and (max-width: 429px) {
-  header .content .back_container {
+  header .content .right_links_container {
     text-align: left;
     font-size: 1.25em;
     line-height: 50px;
@@ -194,23 +216,28 @@ header .content .back_container .back:hover {
     width: 100%;
   }
 }
-.back {
-  display: none;
+@media only screen and (min-width: 960px) {
+  header .header-height {
+    height: 120px;
+  }
 }
-@media only screen and (min-width: 960px), only screen and (min-width: 720px) and (max-width: 959px) {
-  header {
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  header .header-height {
     height: 120px;
   }
 }
 @media only screen and (min-width: 430px) and (max-width: 719px) {
-  header {
-    height: 80px;
+  header .header-height {
+    height: 140px;
   }
 }
 @media only screen and (min-width: 1px) and (max-width: 429px) {
-  header {
-    height: 70px;
+  header .header-height {
+    height: 120px;
   }
+}
+.back {
+  display: none;
 }
 .post-listing {
   list-style: none;

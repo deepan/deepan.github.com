@@ -114,6 +114,7 @@ body, .title{
 }
 
 header{
+    .header-height;
     background: @header-color;
     .content{
         .title{
@@ -139,8 +140,8 @@ header{
             }
         }
 
-        .back_container{
-            .back{
+        .right_links_container{
+            .back, .profile{
                 .rounded(2px);
                 padding: 2 8 0 4px;
                 text-decoration: none;
@@ -182,6 +183,21 @@ header{
                 clear: both;
                 width: 100%;
             }
+        }
+    }
+
+.header-height{
+        @media @desktop{
+            height: @title-height-for-desktop-and-tablet;
+        }
+        @media @tablet{
+            height: @title-height-for-desktop-and-tablet;
+        }
+        @media @mobile {
+            height: @title-height-for-mobile + @back-height-for-mobile;
+        }
+        @media @mini-mobile {
+            height: @title-height-for-mini-mobile + @back-height-for-mini-mobile;
         }
     }
 }
