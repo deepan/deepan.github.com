@@ -253,6 +253,7 @@ header .content .back_container .back:hover {
 }
 .post-listing .post-list-item .title .sub-title {
   color: #bdc3c7;
+  white-space: nowrap;
 }
 @media only screen and (min-width: 960px) {
   .post-listing .post-list-item .title .sub-title {
