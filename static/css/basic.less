@@ -20,9 +20,9 @@
 @huge-font: 4em;
 @big-font: 3.25em;
 @medium-font: 2em;
-@small-font: 1.75em;
-@smallest-font: 1.50em;
-@tiny-font: 1.25em;
+@small-font: 1.5em;
+@smallest-font: 1.25em;
+@tiny-font: 1.1em;
 
 @title-height-for-desktop-and-tablet: 120px;
 @title-height-for-mobile: 80px;
@@ -53,10 +53,10 @@
         width: 85%;
     }
     @media @mobile{
-        width: 85%;    
+        width: 90%;
     }
     @media @mini-mobile{
-        width: 85%;
+        width: 90%;
     }
     margin: 0 auto;
 }
@@ -65,20 +65,24 @@
     padding-bottom: 10px;
 }
 
-.post-title-text{
-    color: @post-title-color;
+.media-font-title(@p-desktop-font, @p-tablet-font, @p-mobile-font, @p-mini-mobile-font){
     @media @desktop{
-        font-size:@medium-font;
+        font-size:@p-desktop-font;
     }
     @media @tablet{
-        font-size:@medium-font;
+        font-size:@p-tablet-font;
     }
     @media @mobile {
-        font-size:@medium-font;
+        font-size:@p-mobile-font;
     }
     @media @mini-mobile {
-        font-size:@small-font;
+        font-size:@p-mini-mobile-font;
     }
+}
+
+.post-title-text{
+    color: @post-title-color;
+    .media-font-title(@medium-font, @medium-font, @small-font, @small-font);
 }
 
 .post-content{
