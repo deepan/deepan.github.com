@@ -172,7 +172,6 @@ header .content .right_links_container .profile {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  padding: 2 8 0 4px;
   text-decoration: none;
   background-color: #3498db;
   color: white;
@@ -181,6 +180,12 @@ header .content .right_links_container .back:hover,
 header .content .right_links_container .profile:hover {
   color: #3498db;
   background-color: white;
+}
+header .content .right_links_container .back {
+  padding: 2 8 0 4px;
+}
+header .content .right_links_container .profile {
+  padding: 2 8 0 8px;
 }
 @media only screen and (min-width: 960px) {
   header .content .right_links_container {

@@ -143,7 +143,7 @@ header{
         .right_links_container{
             .back, .profile{
                 .rounded(2px);
-                padding: 2 8 0 4px;
+
                 text-decoration: none;
                 background-color: @back-button-color;
                 color: white;
@@ -156,6 +156,13 @@ header{
             vertical-align: middle;
             overflow: hidden;
 
+            .back{
+                padding: 2 8 0 4px;
+            }
+
+            .profile{
+                padding: 2 8 0 8px;
+            }
 
             @media @desktop{
                 text-align: right;
