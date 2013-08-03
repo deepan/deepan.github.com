@@ -14,6 +14,9 @@
 @text-selection-background-color: #D65858;
 @text-selection-text-color:#FFFFFF;
 @experience-seperator-color:#BDC3C7;
+@experience-year-bg-color-on-small-devices:#E6E4FF;
+@experience-year-color-on-small-devices:#000000;
+
 @text-line-height: 1.5em;
 @year-width:100px;
 
@@ -106,30 +109,47 @@ body{
     color: @text-color-light;
 }
 
-.exp-year-and-desc(@year-position, @year-top-bottom-padding, @year-width-param, @year-height){
+
+
+.exp-year-and-desc-large-device{
     >.year-container{
-        position: @year-position;
+        position: absolute;
         width: @year-width;
-        height: @year-height;
-        padding: @year-top-bottom-padding 0;
+        height: 100%;
         >.year{
-            position: @year-position;
+            position: absolute;
+            display: inline;
             top: 50%;
             margin-top: (-1 * @text-line-height/2);
         }
     }
     >.details{
         overflow: hidden;
-        margin-left: @year-width-param;
+        margin-left: @year-width;
     }
 }
 
-.exp-year-and-desc-large-device{
-    .exp-year-and-desc(absolute, 0px, @year-width, 100%);
-}
-
 .exp-year-and-desc-small-device{
-    .exp-year-and-desc(relative, 10px, 0, inherit);
+    >.year-container{
+        position: relative;
+        width: @year-width;
+        padding: 10px 0;
+        >.year{
+            position: relative;
+            display: inline;
+            top: 50%;
+            margin-top: (-1 * @text-line-height/2);
+
+            background-color: @experience-year-bg-color-on-small-devices;
+            padding: 2px 4px;
+            color: @experience-year-color-on-small-devices;
+            border-radius: 2px;
+
+         }
+    }
+    >.details{
+        overflow: hidden;
+    }
 }
 
 .exp-year-and-desc-for-media{
