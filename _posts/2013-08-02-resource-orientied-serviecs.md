@@ -5,7 +5,7 @@ date: 2013-08-02 12:25:00
 ---
 
 Service Oriented Architecture for enterprise, is somewhat like Object Orientation for code. To my opinion, it is all
-about separation of concerns and standardizing the interfaces.<!--rm--> A common mistake we tend to make while
+about separation<!--rm-->  of concerns and standardizing the interfaces. A common mistake we tend to make while
 designing the interfaces is to make them too specific to the consumers. As a result we end up with too many interfaces
 that are very specific to consumers, and it would quickly turn into a nightmare in terms of maintenance.
 
