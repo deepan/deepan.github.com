@@ -1,0 +1,461 @@
+body {
+  font-family: 'Vollkorn', serif !important;
+  text-rendering: optimizeLegibility;
+}
+@media only screen and (min-width: 960px) {
+  .content-width {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  .content-width {
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 430px) and (max-width: 719px) {
+  .content-width {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 429px) {
+  .content-width {
+    width: 95%;
+  }
+}
+.header,
+.body {
+  margin: 15px auto;
+}
+@media only screen and (min-width: 960px) {
+  .header,
+  .body {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  .header,
+  .body {
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 430px) and (max-width: 719px) {
+  .header,
+  .body {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 429px) {
+  .header,
+  .body {
+    width: 95%;
+  }
+}
+.body {
+  margin: 30px auto;
+}
+@media only screen and (min-width: 960px) {
+  .body {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  .body {
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 430px) and (max-width: 719px) {
+  .body {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 429px) {
+  .body {
+    width: 95%;
+  }
+}
+.body ::-moz-selection {
+  background: #d65858;
+  color: #ffffff;
+}
+.body ::selection {
+  background: #d65858;
+  color: #ffffff;
+}
+.name-and-role > .name {
+  padding-bottom: 10px;
+  color: #e74c3c;
+}
+@media only screen and (min-width: 960px) {
+  .name-and-role > .name {
+    font-size: 4em;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  .name-and-role > .name {
+    font-size: 4em;
+  }
+}
+@media only screen and (min-width: 430px) and (max-width: 719px) {
+  .name-and-role > .name {
+    font-size: 3.5em;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 429px) {
+  .name-and-role > .name {
+    font-size: 3.25em;
+  }
+}
+.role {
+  font-weight: 100;
+  color: #2c3e50;
+}
+@media only screen and (min-width: 960px) {
+  .role {
+    font-size: 1.7em;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  .role {
+    font-size: 1.7em;
+  }
+}
+@media only screen and (min-width: 430px) and (max-width: 719px) {
+  .role {
+    font-size: 1.6em;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 429px) {
+  .role {
+    font-size: 1.5em;
+  }
+}
+.summary,
+.education,
+.experience,
+.social {
+  line-height: 1.5em;
+  color: #1b2a38;
+  margin: 20px auto;
+}
+.sub-heading {
+  font-size: 1.3em;
+  color: #2c3e50;
+}
+.link {
+  text-decoration: underline;
+  color: #16a085;
+}
+.college-year,
+.experience-summary,
+.company-name > .duration,
+.technologies {
+  color: #7f8c8d;
+}
+.exp-year-and-desc-large-device > .year-container {
+  position: absolute;
+  width: 100px;
+  height: 100%;
+}
+.exp-year-and-desc-large-device > .year-container > .year {
+  position: absolute;
+  display: inline;
+  top: 50%;
+  margin-top: -0.75em;
+}
+.exp-year-and-desc-large-device > .details {
+  overflow: hidden;
+  margin-left: 100px;
+}
+.exp-year-and-desc-small-device > .year-container {
+  position: relative;
+  width: 100px;
+  padding: 10px 0;
+}
+.exp-year-and-desc-small-device > .year-container > .year {
+  position: relative;
+  display: inline;
+  top: 50%;
+  margin-top: -0.75em;
+  background-color: #e6e4ff;
+  padding: 2px 4px;
+  color: #000000;
+  border-radius: 2px;
+}
+.exp-year-and-desc-small-device > .details {
+  overflow: hidden;
+}
+@media only screen and (min-width: 960px) {
+  .exp-year-and-desc-for-media > .year-container {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+  }
+  .exp-year-and-desc-for-media > .year-container > .year {
+    position: absolute;
+    display: inline;
+    top: 50%;
+    margin-top: -0.75em;
+  }
+  .exp-year-and-desc-for-media > .details {
+    overflow: hidden;
+    margin-left: 100px;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  .exp-year-and-desc-for-media > .year-container {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+  }
+  .exp-year-and-desc-for-media > .year-container > .year {
+    position: absolute;
+    display: inline;
+    top: 50%;
+    margin-top: -0.75em;
+  }
+  .exp-year-and-desc-for-media > .details {
+    overflow: hidden;
+    margin-left: 100px;
+  }
+}
+@media only screen and (min-width: 430px) and (max-width: 719px) {
+  .exp-year-and-desc-for-media > .year-container {
+    position: relative;
+    width: 100px;
+    padding: 10px 0;
+  }
+  .exp-year-and-desc-for-media > .year-container > .year {
+    position: relative;
+    display: inline;
+    top: 50%;
+    margin-top: -0.75em;
+    background-color: #e6e4ff;
+    padding: 2px 4px;
+    color: #000000;
+    border-radius: 2px;
+  }
+  .exp-year-and-desc-for-media > .details {
+    overflow: hidden;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 429px) {
+  .exp-year-and-desc-for-media > .year-container {
+    position: relative;
+    width: 100px;
+    padding: 10px 0;
+  }
+  .exp-year-and-desc-for-media > .year-container > .year {
+    position: relative;
+    display: inline;
+    top: 50%;
+    margin-top: -0.75em;
+    background-color: #e6e4ff;
+    padding: 2px 4px;
+    color: #000000;
+    border-radius: 2px;
+  }
+  .exp-year-and-desc-for-media > .details {
+    overflow: hidden;
+  }
+}
+.company {
+  margin: 10px 0;
+}
+.company > .experience-line-item {
+  position: relative;
+  margin: 5px 0 10px 0;
+  border-bottom-style: dotted;
+  border-width: 1px;
+  border-color: #bdc3c7;
+}
+.company > .experience-line-item > .experience-container {
+  margin-bottom: 5px;
+  position: relative;
+}
+@media only screen and (min-width: 960px) {
+  .company > .experience-line-item > .experience-container > .year-container {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+  }
+  .company > .experience-line-item > .experience-container > .year-container > .year {
+    position: absolute;
+    display: inline;
+    top: 50%;
+    margin-top: -0.75em;
+  }
+  .company > .experience-line-item > .experience-container > .details {
+    overflow: hidden;
+    margin-left: 100px;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  .company > .experience-line-item > .experience-container > .year-container {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+  }
+  .company > .experience-line-item > .experience-container > .year-container > .year {
+    position: absolute;
+    display: inline;
+    top: 50%;
+    margin-top: -0.75em;
+  }
+  .company > .experience-line-item > .experience-container > .details {
+    overflow: hidden;
+    margin-left: 100px;
+  }
+}
+@media only screen and (min-width: 430px) and (max-width: 719px) {
+  .company > .experience-line-item > .experience-container > .year-container {
+    position: relative;
+    width: 100px;
+    padding: 10px 0;
+  }
+  .company > .experience-line-item > .experience-container > .year-container > .year {
+    position: relative;
+    display: inline;
+    top: 50%;
+    margin-top: -0.75em;
+    background-color: #e6e4ff;
+    padding: 2px 4px;
+    color: #000000;
+    border-radius: 2px;
+  }
+  .company > .experience-line-item > .experience-container > .details {
+    overflow: hidden;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 429px) {
+  .company > .experience-line-item > .experience-container > .year-container {
+    position: relative;
+    width: 100px;
+    padding: 10px 0;
+  }
+  .company > .experience-line-item > .experience-container > .year-container > .year {
+    position: relative;
+    display: inline;
+    top: 50%;
+    margin-top: -0.75em;
+    background-color: #e6e4ff;
+    padding: 2px 4px;
+    color: #000000;
+    border-radius: 2px;
+  }
+  .company > .experience-line-item > .experience-container > .details {
+    overflow: hidden;
+  }
+}
+.company > .company-name > .name {
+  text-decoration: underline;
+}
+.company > .company-name > .duration {
+  margin-left: 3px;
+  font-size: 0.9em;
+}
+.social > .social-sub-heading {
+  float: left;
+  line-height: 35px;
+  padding-top: 2px;
+}
+.social > .social-wrapper {
+  display: inline-block;
+  margin-left: 15px;
+}
+.social > .social-wrapper > .blog {
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin: 5px 4px;
+  background: url("/static/img/blog.png") 0 0;
+  -webkit-transition: background 500ms ease-in-out;
+  -moz-transition: background 500ms ease-in-out;
+  -o-transition: background 500ms ease-in-out;
+  -ms-transition: background 500ms ease-in-out;
+  transition: background 500ms ease-in-out;
+}
+.social > .social-wrapper > .blog:hover {
+  background-position: 0 25px;
+}
+.social > .social-wrapper > .blog:hover ~ div > .blog-tip {
+  display: inline;
+}
+.social > .social-wrapper > .blog > a {
+  display: block;
+  height: 100%;
+}
+.social > .social-wrapper > .github {
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin: 5px 4px;
+  background: url("/static/img/github.png") 0 0;
+  -webkit-transition: background 500ms ease-in-out;
+  -moz-transition: background 500ms ease-in-out;
+  -o-transition: background 500ms ease-in-out;
+  -ms-transition: background 500ms ease-in-out;
+  transition: background 500ms ease-in-out;
+}
+.social > .social-wrapper > .github:hover {
+  background-position: 0 25px;
+}
+.social > .social-wrapper > .github:hover ~ div > .github-tip {
+  display: inline;
+}
+.social > .social-wrapper > .github > a {
+  display: block;
+  height: 100%;
+}
+.social > .social-wrapper > .linkedin {
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin: 5px 4px;
+  background: url("/static/img/linkedin.png") 0 0;
+  -webkit-transition: background 500ms ease-in-out;
+  -moz-transition: background 500ms ease-in-out;
+  -o-transition: background 500ms ease-in-out;
+  -ms-transition: background 500ms ease-in-out;
+  transition: background 500ms ease-in-out;
+}
+.social > .social-wrapper > .linkedin:hover {
+  background-position: 0 25px;
+}
+.social > .social-wrapper > .linkedin:hover ~ div > .linkedin-tip {
+  display: inline;
+}
+.social > .social-wrapper > .linkedin > a {
+  display: block;
+  height: 100%;
+}
+.social > .social-wrapper > .tip {
+  clear: left;
+  text-align: center;
+}
+.social > .social-wrapper > .tip > span {
+  display: none;
+  -webkit-border-radius: 2px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 2px;
+  -moz-background-clip: padding;
+  border-radius: 2px;
+  background-clip: padding-box;
+  -webkit-animation: fadeIn 250ms;
+  animation: fadeIn 250ms;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
