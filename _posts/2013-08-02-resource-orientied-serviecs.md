@@ -27,9 +27,8 @@ certain consumers. You can solve it by establishing a PUBLISH-SUBSCRIBE model, w
 resources and consumers who are interested can consume them and perform the aggregation at their end, another option would
 be to have a separate aggregation system (equipped with relevant tools and technologies) to do such aggregation.
 
-Also I feel that, one doesn't have to get himself constrained with REST architecture and related technologies to design
-resource oriented interfaces, un-till the basic principle is not compromised.
-
+Also I feel that, there is no need to feel constrained to proceed only with REST architecture and related technologies
+to design resource oriented interfaces, provided the basic principle is not compromised.
 
 
 
