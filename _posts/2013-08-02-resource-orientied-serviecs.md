@@ -11,8 +11,8 @@ that are very specific to consumers, and it would quickly turn into a nightmare 
 
 If you agree that designing generic interfaces would solve many of the problems, the next challenge is on designing such
 generic services itself. When we build enterprise applications iteratively, typically we don't get a visibility of all
-the interactions between the applications and hence without such a wholistic view it's even more difficult to design
-services that are generic enough to serve many consumers?
+the interactions between the applications and hence without such a wholistic view it is very difficult to design
+services that are generic enough to serve many consumers.
 
 One way of solving this problem is by designing resource oriented interfaces i.e, by identify resources that an application
 owns (like orders, customers, fault, stock etc) and exposing operations over them as interfaces (like search, read, update,
