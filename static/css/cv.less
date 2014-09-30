@@ -26,13 +26,13 @@ body{
 }
 
 .content-width{
-    @media @desktop, {
+    @media @desktop{
         width: 80%;
     }
     @media @tablet{
         width: 90%;
     }
-    @media @mobile{
+    @media @mobile, print{
         width: 95%;
     }
     @media @mini-mobile{
@@ -42,12 +42,12 @@ body{
 
 .header, .body{
     .content-width;
-    margin: 15px auto;
+    margin: 0px auto 15px auto;
 }
 
 .body{
     .content-width;
-    margin: 30px auto;
+    margin: 20px auto;
     ::-moz-selection
     {
         background:@text-selection-background-color;
@@ -61,7 +61,7 @@ body{
 }
 
 .media-font-size(@p-desktop, @p-tablet, @p-mobile, @p-mini-mobile){
-    @media @desktop, {
+    @media @desktop, print{
         font-size: @p-desktop;
     }
     @media @tablet{
@@ -78,7 +78,7 @@ body{
 .name-and-role{
     >.name{
         .media-font-size(4em, 4em, 3.5em, 3.25em);
-        padding-bottom: 10px;
+        // padding-bottom: 10px;
         color: @text-color-extra-dark;    
     }
 }
@@ -92,7 +92,7 @@ body{
 .summary, .education, .experience, .social{
     line-height: @text-line-height;
     color: @text-color-more-dark;
-    margin: 20px auto;
+    margin: 30px auto;
 }
 
 .sub-heading{
@@ -109,7 +109,9 @@ body{
     color: @text-color-light;
 }
 
-
+.experience-summary{
+    display: none;
+}
 
 .exp-year-and-desc-large-device{
     >.year-container{
@@ -153,7 +155,7 @@ body{
 }
 
 .exp-year-and-desc-for-media{
-    @media @desktop, {
+    @media @desktop, print{
         .exp-year-and-desc-large-device;
     }
     @media @tablet{
@@ -219,6 +221,9 @@ body{
  }
 
 .social{
+    @media print {
+        display: none;
+    }
     >.social-sub-heading{
         float: left;
         line-height: 35px;

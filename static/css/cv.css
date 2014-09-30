@@ -12,7 +12,7 @@ body {
     width: 90%;
   }
 }
-@media only screen and (min-width: 430px) and (max-width: 719px) {
+@media only screen and (min-width: 430px) and (max-width: 719px), print {
   .content-width {
     width: 95%;
   }
@@ -24,7 +24,7 @@ body {
 }
 .header,
 .body {
-  margin: 15px auto;
+  margin: 0px auto 15px auto;
 }
 @media only screen and (min-width: 960px) {
   .header,
@@ -38,7 +38,7 @@ body {
     width: 90%;
   }
 }
-@media only screen and (min-width: 430px) and (max-width: 719px) {
+@media only screen and (min-width: 430px) and (max-width: 719px), print {
   .header,
   .body {
     width: 95%;
@@ -51,7 +51,7 @@ body {
   }
 }
 .body {
-  margin: 30px auto;
+  margin: 20px auto;
 }
 @media only screen and (min-width: 960px) {
   .body {
@@ -63,7 +63,7 @@ body {
     width: 90%;
   }
 }
-@media only screen and (min-width: 430px) and (max-width: 719px) {
+@media only screen and (min-width: 430px) and (max-width: 719px), print {
   .body {
     width: 95%;
   }
@@ -82,10 +82,9 @@ body {
   color: #ffffff;
 }
 .name-and-role > .name {
-  padding-bottom: 10px;
   color: #e74c3c;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 960px), print {
   .name-and-role > .name {
     font-size: 4em;
   }
@@ -109,7 +108,7 @@ body {
   font-weight: 100;
   color: #2c3e50;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 960px), print {
   .role {
     font-size: 1.7em;
   }
@@ -135,7 +134,7 @@ body {
 .social {
   line-height: 1.5em;
   color: #1b2a38;
-  margin: 20px auto;
+  margin: 30px auto;
 }
 .sub-heading {
   font-size: 1.3em;
@@ -150,6 +149,9 @@ body {
 .company-name > .duration,
 .technologies {
   color: #7f8c8d;
+}
+.experience-summary {
+  display: none;
 }
 .exp-year-and-desc-large-device > .year-container {
   position: absolute;
@@ -184,7 +186,7 @@ body {
 .exp-year-and-desc-small-device > .details {
   overflow: hidden;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 960px), print {
   .exp-year-and-desc-for-media > .year-container {
     position: absolute;
     width: 100px;
@@ -272,7 +274,7 @@ body {
   margin-bottom: 5px;
   position: relative;
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 960px), print {
   .company > .experience-line-item > .experience-container > .year-container {
     position: absolute;
     width: 100px;
@@ -352,6 +354,11 @@ body {
 .company > .company-name > .duration {
   margin-left: 3px;
   font-size: 0.9em;
+}
+@media print {
+  .social {
+    display: none;
+  }
 }
 .social > .social-sub-heading {
   float: left;
