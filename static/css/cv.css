@@ -1,6 +1,7 @@
 body {
   font-family: 'Vollkorn', serif !important;
   text-rendering: optimizeLegibility;
+  -webkit-print-color-adjust: exact;
 }
 @media only screen and (min-width: 960px) {
   .content-width {
@@ -153,6 +154,11 @@ body {
 .experience-summary {
   display: none;
 }
+.mobile-experience .mobile {
+  background-color: #EEEEFF;
+  padding: 0 2px;
+  border-radius: 3px;
+}
 .exp-year-and-desc-large-device > .year-container {
   position: absolute;
   width: 100px;
@@ -167,6 +173,11 @@ body {
 .exp-year-and-desc-large-device > .details {
   overflow: hidden;
   margin-left: 100px;
+}
+.exp-year-and-desc-large-device > .details .mobile {
+  background-color: #EEEEFF;
+  padding: 0 2px;
+  border-radius: 3px;
 }
 .exp-year-and-desc-small-device > .year-container {
   position: relative;
@@ -186,6 +197,11 @@ body {
 .exp-year-and-desc-small-device > .details {
   overflow: hidden;
 }
+.exp-year-and-desc-small-device > .details .mobile {
+  background-color: #EEEEFF;
+  padding: 0 2px;
+  border-radius: 3px;
+}
 @media only screen and (min-width: 960px), print {
   .exp-year-and-desc-for-media > .year-container {
     position: absolute;
@@ -201,6 +217,11 @@ body {
   .exp-year-and-desc-for-media > .details {
     overflow: hidden;
     margin-left: 100px;
+  }
+  .exp-year-and-desc-for-media > .details .mobile {
+    background-color: #EEEEFF;
+    padding: 0 2px;
+    border-radius: 3px;
   }
 }
 @media only screen and (min-width: 720px) and (max-width: 959px) {
@@ -218,6 +239,11 @@ body {
   .exp-year-and-desc-for-media > .details {
     overflow: hidden;
     margin-left: 100px;
+  }
+  .exp-year-and-desc-for-media > .details .mobile {
+    background-color: #EEEEFF;
+    padding: 0 2px;
+    border-radius: 3px;
   }
 }
 @media only screen and (min-width: 430px) and (max-width: 719px) {
@@ -239,6 +265,11 @@ body {
   .exp-year-and-desc-for-media > .details {
     overflow: hidden;
   }
+  .exp-year-and-desc-for-media > .details .mobile {
+    background-color: #EEEEFF;
+    padding: 0 2px;
+    border-radius: 3px;
+  }
 }
 @media only screen and (min-width: 1px) and (max-width: 429px) {
   .exp-year-and-desc-for-media > .year-container {
@@ -258,6 +289,11 @@ body {
   }
   .exp-year-and-desc-for-media > .details {
     overflow: hidden;
+  }
+  .exp-year-and-desc-for-media > .details .mobile {
+    background-color: #EEEEFF;
+    padding: 0 2px;
+    border-radius: 3px;
   }
 }
 .company {
@@ -290,6 +326,11 @@ body {
     overflow: hidden;
     margin-left: 100px;
   }
+  .company > .experience-line-item > .experience-container > .details .mobile {
+    background-color: #EEEEFF;
+    padding: 0 2px;
+    border-radius: 3px;
+  }
 }
 @media only screen and (min-width: 720px) and (max-width: 959px) {
   .company > .experience-line-item > .experience-container > .year-container {
@@ -306,6 +347,11 @@ body {
   .company > .experience-line-item > .experience-container > .details {
     overflow: hidden;
     margin-left: 100px;
+  }
+  .company > .experience-line-item > .experience-container > .details .mobile {
+    background-color: #EEEEFF;
+    padding: 0 2px;
+    border-radius: 3px;
   }
 }
 @media only screen and (min-width: 430px) and (max-width: 719px) {
@@ -327,6 +373,11 @@ body {
   .company > .experience-line-item > .experience-container > .details {
     overflow: hidden;
   }
+  .company > .experience-line-item > .experience-container > .details .mobile {
+    background-color: #EEEEFF;
+    padding: 0 2px;
+    border-radius: 3px;
+  }
 }
 @media only screen and (min-width: 1px) and (max-width: 429px) {
   .company > .experience-line-item > .experience-container > .year-container {
@@ -346,6 +397,11 @@ body {
   }
   .company > .experience-line-item > .experience-container > .details {
     overflow: hidden;
+  }
+  .company > .experience-line-item > .experience-container > .details .mobile {
+    background-color: #EEEEFF;
+    padding: 0 2px;
+    border-radius: 3px;
   }
 }
 .company > .company-name > .name {

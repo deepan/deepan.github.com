@@ -23,6 +23,7 @@
 body{
     font-family: 'Vollkorn', serif !important;
     text-rendering: optimizeLegibility;
+    -webkit-print-color-adjust:exact;
 }
 
 .content-width{
@@ -113,6 +114,14 @@ body{
     display: none;
 }
 
+.mobile-experience{
+    .mobile{
+            background-color: #EEEEFF;
+            padding:0 2px;
+            border-radius: 3px;
+        }
+}
+
 .exp-year-and-desc-large-device{
     >.year-container{
         position: absolute;
@@ -128,6 +137,7 @@ body{
     >.details{
         overflow: hidden;
         margin-left: @year-width;
+        .mobile-experience;        
     }
 }
 
@@ -146,11 +156,11 @@ body{
             padding: 2px 4px;
             color: @experience-year-color-on-small-devices;
             border-radius: 2px;
-
          }
     }
     >.details{
         overflow: hidden;
+        .mobile-experience;
     }
 }
 
